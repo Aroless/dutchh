@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700;900&display=swap');
+@import "tailwindcss";
+html {
+  scroll-behavior: smooth;
+}
+:root {
+  --font-space: 'Space Grotesk', sans-serif;
+}
+
+body {
+  font-family: var(--font-space);
+  /* Mat ve Şık Renk Geçişli Arka Plan (Dark Muted Gradient) */
+  background: radial-gradient(circle at 20% 20%, #1e2638 0%, #0d111a 50%, #07090e 100%);
+  background-attachment: fixed;
+  color: #f1f5f9;
+}
+
+/* Şık ve Mat Neo-Brutalist Kartlar */
+.neo-card-dark {
+  background-color: #161b26;
+  border: 3px solid #334155;
+  box-shadow: 6px 6px 0px 0px #000000;
+}
+
+.neo-btn-accent {
+  background-color: #3b82f6;
+  color: #ffffff;
+  border: 3px solid #000000;
+  font-weight: 800;
+  box-shadow: 4px 4px 0px 0px #000000;
+  transition: all 0.15s ease-in-out;
+}
+
+.neo-btn-accent:hover {
+  background-color: #2563eb;
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px #000000;
+}
+
+/* Kayan Yazı Animasyonu */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: 200%;
+  animation: marquee 20s linear infinite;
+}
