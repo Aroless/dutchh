@@ -8,45 +8,41 @@ export const metadata = {
 
 export default function BlogPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-amber-50/60 via-slate-50 to-orange-50/50 px-6 py-16">
+    <main className="min-h-screen bg-[#f5f1e8] px-6 py-20 text-[#1c1b19]">
       <div className="mx-auto max-w-6xl">
-        <header className="max-w-3xl mb-14">
-          <span className="inline-flex rounded-full border border-amber-300 bg-amber-100/80 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-amber-800">
-            Dutch Angle Blog
-          </span>
-          <h1 className="mt-5 text-4xl font-black uppercase tracking-tight text-slate-900 md:text-6xl">
+        <header className="border-t border-[#1c1b19] pt-10">
+          <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#a77b16]">Dutch Angle blog</span>
+          <h1 className="mt-5 max-w-4xl font-serif text-5xl leading-[1.02] tracking-tight md:text-7xl">
             Dijital büyümenin notları.
           </h1>
-          <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600">
+          <p className="mt-7 max-w-2xl text-base leading-8 text-[#6e6a61] md:text-lg">
             E-ticaret operasyonları, performans pazarlaması ve yeni nesil dijital altyapılar üzerine uygulanabilir fikirler.
           </p>
         </header>
 
-        <section aria-label="Blog yazıları" className="grid gap-6 md:grid-cols-2">
+        <section aria-label="Blog yazıları" className="mt-24 grid gap-x-8 gap-y-12 md:grid-cols-2">
           {blogPosts.map((post, index) => (
             <article
               key={post.slug}
-              className={`group flex min-h-[290px] flex-col justify-between rounded-3xl border p-7 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl ${
-                index === 0 ? "border-slate-900 bg-slate-900 text-white md:col-span-2" : "border-amber-200/80 bg-white/90"
-              }`}
+              className={`group flex flex-col justify-between border-t border-[#1c1b19] pt-5 ${index === 0 ? "md:col-span-2 md:min-h-[280px]" : ""}`}
             >
               <div>
-                <div className={`flex items-center justify-between text-[11px] font-bold uppercase tracking-widest ${index === 0 ? "text-amber-300" : "text-amber-700"}`}>
+                <div className="flex items-center justify-between text-[11px] font-bold uppercase tracking-[0.18em] text-[#a77b16]">
                   <span>{post.category}</span>
                   <span>{post.readTime}</span>
                 </div>
-                <h2 className={`mt-7 max-w-4xl text-2xl font-black leading-tight md:text-3xl ${index === 0 ? "text-white" : "text-slate-900"}`}>
+                <h2 className="mt-6 max-w-4xl font-serif text-3xl leading-tight tracking-tight text-[#1c1b19] transition-colors group-hover:text-[#a77b16] md:text-4xl">
                   {post.title}
                 </h2>
-                <p className={`mt-4 max-w-3xl text-sm leading-6 ${index === 0 ? "text-slate-300" : "text-slate-600"}`}>
+                <p className="mt-4 max-w-3xl text-sm leading-7 text-[#6e6a61]">
                   {post.excerpt}
                 </p>
               </div>
               <Link
                 href={`/blog/${post.slug}`}
-                className={`mt-8 inline-flex w-fit items-center rounded-xl px-4 py-2.5 text-xs font-bold uppercase tracking-wider transition-colors ${index === 0 ? "bg-amber-400 text-slate-900 hover:bg-amber-300" : "bg-slate-900 text-amber-300 hover:bg-slate-800"}`}
+                className="mt-8 inline-flex w-fit items-center border-b border-[#1c1b19] pb-2 text-xs font-bold uppercase tracking-[0.16em] text-[#1c1b19] transition-colors hover:border-[#a77b16] hover:text-[#a77b16]"
               >
-                Yazıyı Oku <span className="ml-2" aria-hidden="true">→</span>
+                Yazıyı oku <span className="ml-2" aria-hidden="true">→</span>
               </Link>
             </article>
           ))}

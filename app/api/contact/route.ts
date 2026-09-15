@@ -123,7 +123,7 @@ export async function POST(req: Request) {
     // 3. Resend ile Bildirim E-Postası Gönder
     try {
       await resend.emails.send({
-        from: "Lejit Website <onboarding@resend.dev>",
+        from: "Dutch Angle Website <onboarding@resend.dev>",
         to: ["a396aa@gmail.com"],
         subject: `🔥 Yeni İletişim Formu: ${name}`,
         html: `
