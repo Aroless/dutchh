@@ -10,7 +10,7 @@ interface ContactMessage {
   email: string;
   phone: string;
   service: string;
-  message: string;
+  note: string;
   created_at: string;
 }
 
@@ -65,29 +65,26 @@ export default function AdminPage() {
   }, [router]);
 
   // Siteden gelen talepleri çek
-  const fetchMessages = async () => {
-    const { data } = await supabase
-      .from("contacts")
-      .select("*")
-      .order("created_at", { ascending: false });
+  async function fetchMessages() {
+    const response = await fetch("/api/admin/contacts");
+    const result = await response.json();
 
-    setMessages(data || []);
-  };
+    setMessages(response.ok ? result.data || [] : []);
+  }
 
   // Tüm kayıtlı müşterileri çek
-  const fetchClients = async () => {
+  async function fetchClients() {
     setLoading(true);
-    const { data } = await supabase
-      .from("profiles")
-      .select("*")
-      .eq("role", "customer");
+    const response = await fetch("/api/admin/clients");
+    const result = await response.json();
+    const data = response.ok ? result.data || [] : [];
 
     setClients(data || []);
     if (data && data.length > 0 && !selectedClient) {
       setSelectedClient(data[0]); // Varsayılan ilk müşteriyi seç
     }
     setLoading(false);
-  };
+  }
 
   // Müşteri Hesabı Oluşturma İşlemi
   const handleCreateClient = async (e: React.FormEvent) => {
@@ -95,47 +92,27 @@ export default function AdminPage() {
     setCreateLoading(true);
     setCreateSuccess(null);
 
-    const { data: authData, error: authError } = await supabase.auth.signUp({
-      email: clientEmail,
-      password: clientPassword,
+    const response = await fetch("/api/admin/clients", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        clientName,
+        email: clientEmail,
+        password: clientPassword,
+        projectName,
+      }),
     });
+    const result = await response.json();
 
-    if (authError) {
-      alert("Kullanıcı oluşturulurken hata: " + authError.message);
-      setCreateLoading(false);
-      return;
-    }
-
-    if (authData.user) {
-      const { error: profileError } = await supabase.from("profiles").insert([
-        {
-          id: authData.user.id,
-          email: clientEmail,
-          full_name: clientName,
-          role: "customer",
-          project_name: projectName || "Web Sitesi Projesi",
-          project_status: "Anlaşma Sağlandı & Başlandı",
-          project_progress: 10,
-          notes: "Proje yönetimi başlatıldı.",
-          revenue: 0,
-          orders: 0,
-          ad_spend: 0,
-          roas: 0,
-          clicks: 0,
-          conversion_rate: 0
-        },
-      ]);
-
-      if (profileError) {
-        alert("Müşteri profili eklenirken hata: " + profileError.message);
-      } else {
-        setCreateSuccess(`Müşteri hesabı başarıyla açıldı! E-posta: ${clientEmail}`);
-        setClientName("");
-        setClientEmail("");
-        setClientPassword("");
-        setProjectName("");
-        fetchClients(); // Listeyi yenile
-      }
+    if (!response.ok) {
+      alert(result.error || "Müşteri oluşturulamadı.");
+    } else {
+      setCreateSuccess(`Müşteri hesabı başarıyla açıldı! E-posta: ${clientEmail}`);
+      setClientName("");
+      setClientEmail("");
+      setClientPassword("");
+      setProjectName("");
+      fetchClients();
     }
     setCreateLoading(false);
   };
@@ -147,9 +124,11 @@ export default function AdminPage() {
 
     setUpdateLoading(true);
 
-    const { error } = await supabase
-      .from("profiles")
-      .update({
+    const response = await fetch("/api/admin/clients", {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        id: selectedClient.id,
         project_name: selectedClient.project_name,
         project_status: selectedClient.project_status,
         project_progress: selectedClient.project_progress,
@@ -160,11 +139,12 @@ export default function AdminPage() {
         roas: selectedClient.roas,
         clicks: selectedClient.clicks,
         conversion_rate: selectedClient.conversion_rate,
-      })
-      .eq("id", selectedClient.id);
+      }),
+    });
+    const result = await response.json();
 
-    if (error) {
-      alert("Güncelleme sırasında hata oluştu: " + error.message);
+    if (!response.ok) {
+      alert(result.error || "Güncelleme sırasında hata oluştu.");
     } else {
       alert(`${selectedClient.full_name} için canlı veriler başarıyla güncellendi!`);
       fetchClients();
@@ -175,9 +155,15 @@ export default function AdminPage() {
   const handleDelete = async (id: string) => {
     if (!confirm("Bu mesajı silmek istediğinize emin misiniz?")) return;
 
-    const { error } = await supabase.from("contacts").delete().eq("id", id);
-    if (error) {
-      alert("Silinirken hata oluştu: " + error.message);
+    const response = await fetch("/api/admin/contacts", {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id }),
+    });
+    const result = await response.json();
+
+    if (!response.ok) {
+      alert(result.error || "Silinirken hata oluştu.");
     } else {
       setMessages(messages.filter((msg) => msg.id !== id));
     }
@@ -503,7 +489,7 @@ export default function AdminPage() {
 
                   <div className="bg-gray-950 p-4 rounded-xl border border-gray-800/80 mb-4">
                     <span className="text-gray-500 text-xs block mb-1">NOT / PROJE DETAYLARI</span>
-                    <p className="text-gray-300 text-sm whitespace-pre-wrap">{msg.message}</p>
+                    <p className="text-gray-300 text-sm whitespace-pre-wrap">{msg.note || "Not eklenmemiş."}</p>
                   </div>
 
                   <div className="flex justify-end">

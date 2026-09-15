@@ -79,7 +79,7 @@ export default function ClientDashboard() {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center pb-6 border-b border-gray-800 gap-4">
           <div>
             <h1 className="text-3xl font-bold text-yellow-500 tracking-wider">
-              LEJİT. <span className="text-white text-xl font-normal">| Müşteri Portalı</span>
+              DUTCH ANGLE. <span className="text-white text-xl font-normal">| Müşteri Portalı</span>
             </h1>
             <p className="text-gray-400 text-sm mt-1">
               Hoş geldiniz, <strong className="text-white">{profile?.full_name || "Değerli Müşterimiz"}</strong>
@@ -136,7 +136,7 @@ export default function ClientDashboard() {
             <div className="mt-8 pt-6 border-t border-gray-800">
               <span className="text-xs text-gray-500 block mb-2">Ajanstan Destek Alın</span>
               <a
-                href="mailto:destek@lejit.com"
+                href="mailto:destek@dutchangle.com"
                 className="block text-center bg-gray-800 hover:bg-gray-700 text-white font-medium py-2.5 rounded-xl text-sm transition-colors"
               >
                 Proje Yöneticisine Yazın

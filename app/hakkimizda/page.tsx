@@ -1,16 +1,14 @@
-import Header from "@/components/Header";
 import Link from "next/link";
 
 export default function HakkimizdaPage() {
   return (
     <main className="min-h-screen bg-[#faf9f6] text-slate-900 pb-20">
-      <Header />
-
+      
       {/* HERO BÖLÜMÜ */}
       <section className="max-w-6xl mx-auto px-6 pt-12 pb-8">
         <div className="flex justify-center mb-4">
           <span className="inline-block bg-amber-100 text-amber-800 text-xs font-bold px-4 py-1.5 rounded-full border border-amber-300/60 uppercase tracking-wider">
-            LEJİT HİKAYESİ & MİSYONU
+            DUTCH ANGLE HİKAYESİ & MİSYONU
           </span>
         </div>
         <h1 className="text-4xl md:text-5xl font-black text-center text-slate-900 tracking-tight leading-tight max-w-3xl mx-auto uppercase">
@@ -72,7 +70,7 @@ export default function HakkimizdaPage() {
               Bizimle çalışmaya hazır mısınız?
             </span>
             <Link
-              href="/#iletisim"
+              href="/basvuru"
               className="bg-amber-400 hover:bg-amber-500 text-slate-900 font-bold px-6 py-3 rounded-full transition-colors text-sm"
             >
               İletişime Geçin

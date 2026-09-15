@@ -28,8 +28,23 @@ export async function middleware(request: NextRequest) {
   const { data: { user } } = await supabase.auth.getUser()
 
   // Giriş yapmamış kullanıcıları /admin ve /dashboard sayfalarından /login'e yönlendir
-  if (!user && (request.nextUrl.pathname.startsWith('/admin') || request.nextUrl.pathname.startsWith('/dashboard'))) {
+  const isAdminRoute = request.nextUrl.pathname.startsWith('/admin')
+  const isDashboardRoute = request.nextUrl.pathname.startsWith('/dashboard')
+
+  if (!user && (isAdminRoute || isDashboardRoute)) {
     return NextResponse.redirect(new URL('/login', request.url))
+  }
+
+  if (user && isAdminRoute) {
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('role')
+      .eq('id', user.id)
+      .maybeSingle()
+
+    if (profile?.role !== 'admin') {
+      return NextResponse.redirect(new URL('/dashboard', request.url))
+    }
   }
 
   return response

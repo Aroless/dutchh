@@ -57,7 +57,7 @@ export default function LoginPage() {
       <div className="w-full max-w-md bg-gray-900 border border-gray-800 rounded-2xl p-8 shadow-2xl">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold tracking-wider text-yellow-500 mb-2">
-            LEJİT.
+            Dutch Angle.
           </h1>
           <p className="text-gray-400 text-sm">Giriş Portalı</p>
         </div>

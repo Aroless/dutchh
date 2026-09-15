@@ -1,43 +1,126 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700;900&display=swap');
 @import "tailwindcss";
+
 html {
   scroll-behavior: smooth;
 }
+
 :root {
-  --font-space: 'Space Grotesk', sans-serif;
+  --paper: #f5f1e8;
+  --paper-light: #fbfaf6;
+  --ink: #1c1b19;
+  --muted-ink: #6e6a61;
+  --line: #d8d1c4;
+  --accent: #c79a2b;
+  --accent-soft: #eee2bd;
+  --font-display: Georgia, "Times New Roman", serif;
+  --font-body: Arial, Helvetica, sans-serif;
 }
 
 body {
-  font-family: var(--font-space);
-  /* Mat ve Şık Renk Geçişli Arka Plan (Dark Muted Gradient) */
-  background: radial-gradient(circle at 20% 20%, #1e2638 0%, #0d111a 50%, #07090e 100%);
-  background-attachment: fixed;
-  color: #f1f5f9;
+  font-family: var(--font-body);
+  background: var(--paper);
+  color: var(--ink);
+  text-rendering: optimizeLegibility;
 }
 
-/* Şık ve Mat Neo-Brutalist Kartlar */
-.neo-card-dark {
-  background-color: #161b26;
-  border: 3px solid #334155;
-  box-shadow: 6px 6px 0px 0px #000000;
+main[class*="bg-gradient-to-br"] {
+  background: var(--paper) !important;
+  color: var(--ink);
 }
 
-.neo-btn-accent {
-  background-color: #3b82f6;
-  color: #ffffff;
-  border: 3px solid #000000;
-  font-weight: 800;
-  box-shadow: 4px 4px 0px 0px #000000;
-  transition: all 0.15s ease-in-out;
+main[class*="bg-gradient-to-br"] [class*="rounded-3xl"],
+main[class*="bg-gradient-to-br"] [class*="rounded-2xl"] {
+  border-radius: 0.25rem;
+  box-shadow: none;
 }
 
-.neo-btn-accent:hover {
-  background-color: #2563eb;
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0px 0px #000000;
+main[class*="bg-gradient-to-br"] h1,
+main[class*="bg-gradient-to-br"] h2,
+main[class*="bg-gradient-to-br"] h3 {
+  font-family: var(--font-display);
+  letter-spacing: -0.035em;
+  text-transform: none;
 }
 
-/* Kayan Yazı Animasyonu */
+main[class*="bg-gradient-to-br"] p {
+  color: var(--muted-ink);
+}
+
+.service-page {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.service-page .service-hero,
+.service-page .service-scope,
+.service-page .service-process {
+  border-color: var(--line);
+}
+
+.service-page .service-hero h1,
+.service-page .service-scope h2,
+.service-page .service-process h2,
+.service-page .service-scope h3,
+.service-page .service-process h3 {
+  color: var(--ink);
+  font-family: var(--font-display);
+}
+
+.service-page .service-hero p,
+.service-page .service-scope p,
+.service-page .service-process p {
+  color: var(--muted-ink);
+}
+
+.service-page .service-category,
+.service-page .service-label {
+  color: #a77b16;
+}
+
+.service-page .service-architecture,
+.service-page .service-item,
+.service-page .service-step {
+  background: var(--paper-light);
+  border-color: var(--line);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.service-page .service-step {
+  background: transparent;
+}
+
+.service-page .service-number {
+  color: #a77b16;
+}
+
+.service-page .service-benefit {
+  border-color: var(--accent);
+  background: #eee2bd55;
+}
+
+.service-page .service-cta {
+  background: var(--ink);
+  color: var(--paper-light);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.service-page .service-cta:hover {
+  background: var(--accent);
+  color: var(--ink);
+}
+
+a,
+button {
+  transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease, opacity 180ms ease;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--ink);
+}
+
 @keyframes marquee {
   0% { transform: translateX(0%); }
   100% { transform: translateX(-50%); }
@@ -47,4 +130,14 @@ body {
   display: flex;
   width: 200%;
   animation: marquee 20s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-marquee {
+    animation: none;
+  }
 }

@@ -25,13 +25,6 @@ const SERVICES: ServiceOption[] = [
     description: "Hedef kitle analizi, Bütçe ve ROAS odaklı kampanya yönetimi.",
     monthlyPrice: 12000,
   },
-  {
-    id: "social_media_pro",
-    category: "sosyal medya",
-    title: "Sosyal Medya Yönetimi & Prodüksiyon",
-    description: "Aylık 12 Reels videosu, içerik tasarımı ve topluluk yönetimi.",
-    monthlyPrice: 10000,
-  },
 ];
 
 export default function PackageCalculator() {
