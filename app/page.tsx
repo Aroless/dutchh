@@ -20,15 +20,12 @@ export default function Home() {
           <div className="lg:col-span-8">
             <div className="inline-flex items-center gap-2 text-[#a77b16] font-bold text-[11px] mb-7 tracking-[0.2em] uppercase">
               <span className="w-7 h-px bg-[#a77b16]"></span>
-              B2B & E-TİCARET DİJİTAL MOTORU
+              MARKALAR İÇİN YENİ İHTİMALLER ÜRETİYORUZ
             </div>
             
             <h1 className="font-serif text-5xl md:text-7xl tracking-tight leading-[0.98] mb-8 text-[#1c1b19]">
-              REKLAM VE E-TİCARETİ <br />
-                <span className="text-[#a77b16] italic">
-                PREMİUM SEVİYEYE
-              </span> <br />
-              TAŞIYORUZ.
+              E-TİCARETİNİZE FARKLI <br />
+              PERSPEKTİFLERDEN BAKIYORUZ.
             </h1>
 
             <p className="font-medium text-[#6e6a61] text-sm md:text-base max-w-2xl border-l border-[#c79a2b] pl-5 leading-7">
@@ -97,8 +94,7 @@ export default function Home() {
               <div>
                 <span className="text-[#a77b16] font-serif text-2xl block mb-3">03</span>
                 <div className="space-y-2 text-[#3d3a35] font-semibold text-sm leading-relaxed">
-                  <p>Sosyal medya ve içerik yönetimi</p>
-                  <p className="pt-2 border-t border-[#d8d1c4]">Sıfırdan web sitesi kurulumu ve tasarımı</p>
+                  <p>Sıfırdan web sitesi kurulumu ve tasarımı</p>
                 </div>
               </div>
             </div>
@@ -248,20 +244,6 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="relative z-10 mt-8 flex flex-wrap justify-end gap-4">
-            <Link
-              href="/audit"
-              className="inline-flex items-center border border-[#d7ad4a] px-5 py-3 text-xs font-bold uppercase tracking-wider text-[#f5f1e8] transition-colors hover:bg-[#d7ad4a] hover:text-[#20211f]"
-            >
-              Hangi aşamadasınız?
-            </Link>
-            <Link
-              href="/growth"
-              className="inline-flex items-center border border-[#d7ad4a] px-5 py-3 text-xs font-bold uppercase tracking-wider text-[#f5f1e8] transition-colors hover:bg-[#d7ad4a] hover:text-[#20211f]"
-            >
-              Büyüme yönetimini incele <span className="ml-2" aria-hidden="true">→</span>
-            </Link>
-          </div>
         </div>
       </section>
 

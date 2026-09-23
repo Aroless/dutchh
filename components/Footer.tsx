@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const serviceLinks = [
   { label: "E-Ticaret Kurulumu", href: "/hizmetler/e-ticaret/e-ticaret-kurulumu" },
@@ -15,8 +16,19 @@ export default function Footer() {
     <footer className="border-t border-[#d8d1c4] bg-[#20211f] text-[#f5f1e8]">
       <div className="max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
         <div>
-          <Link href="/" className="inline-block font-serif text-3xl tracking-tight text-[#fbfaf6]">
-            Dutch Angle<span className="text-[#d7ad4a]">.</span>
+          <Link href="/" className="flex items-center gap-3">
+            <span className="relative h-14 w-14 shrink-0 overflow-hidden">
+              <Image
+                src="/logo-icon.png"
+                alt="Dutch Angle Logo"
+                width={160}
+                height={160}
+                className="absolute left-1/2 top-[-22px] h-auto w-[224px] max-w-none -translate-x-1/2 object-contain"
+              />
+            </span>
+            <span className="font-serif text-3xl tracking-tight text-[#fbfaf6]">
+              Dutch Angle<span className="text-[#d7ad4a]">.</span>
+            </span>
           </Link>
           <p className="mt-5 max-w-xs text-sm leading-7 text-[#b7b2a8]">
             B2B dijital büyüme ve e-ticaret süreçlerinizi ölçülebilir stratejilerle büyütüyoruz.
@@ -42,15 +54,14 @@ export default function Footer() {
             <Link href="/growth" className="text-[#b7b2a8] transition-colors hover:text-[#f5f1e8]">Growth</Link>
             <Link href="/audit" className="text-[#b7b2a8] transition-colors hover:text-[#f5f1e8]">Mağaza Analizi</Link>
             <Link href="/#form-section" className="text-[#b7b2a8] transition-colors hover:text-[#f5f1e8]">İletişim</Link>
-            <Link href="/login" className="text-[#b7b2a8] transition-colors hover:text-[#f5f1e8]">Müşteri Girişi</Link>
           </nav>
         </div>
 
         <div>
           <h2 className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#d7ad4a]">İletişim</h2>
           <div className="mt-4 grid gap-2 text-sm">
-            <a href="mailto:destek@dutchangle.com" className="text-[#b7b2a8] transition-colors hover:text-[#f5f1e8]">
-              destek@dutchangle.com
+            <a href="mailto:hello@dutchangle.co" className="text-[#b7b2a8] transition-colors hover:text-[#f5f1e8]">
+              hello@dutchangle.co
             </a>
             <p className="text-[#817d74]">Büyüme için birlikte çalışalım.</p>
           </div>

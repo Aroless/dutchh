@@ -54,7 +54,6 @@ export default function GrowthPage() {
           <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#a77b16]">Büyüme yönetimi</span>
           <h1 className="mt-5 max-w-4xl font-serif text-5xl leading-[1.02] tracking-tight md:text-7xl">Büyüme tesadüf değildir. Sırası vardır.</h1>
           <p className="mt-7 max-w-3xl text-base leading-8 text-[#6e6a61] md:text-lg">Mağazanızın reklamını, ölçümünü ve dönüşüm tarafını tek elden yönetiyoruz. Amacımız daha fazla tıklama almak değil, aynı bütçeden daha fazla sipariş çıkarmak.</p>
-          <Link href="/basvuru" className="mt-8 inline-flex bg-[#1c1b19] px-6 py-4 text-xs font-bold uppercase tracking-wider text-[#fbfaf6] transition-colors hover:bg-[#a77b16]">Görüşme ayarla →</Link>
         </header>
 
         <section className="mt-24 grid gap-12 border-t border-[#1c1b19] pt-10 lg:grid-cols-[0.7fr_1.3fr]">
@@ -105,7 +104,6 @@ export default function GrowthPage() {
           <h2 className="mt-4 font-serif text-4xl tracking-tight md:text-5xl">Önce mağaza analizini yapıyoruz.</h2>
           <p className="mt-5 max-w-3xl text-sm leading-7 text-[#b7b2a8]">Çalışmaya doğrudan reklam vererek başlamıyoruz. Önce hangi aşamada olduğunuzu ve ilk üç ayın neye harcanacağını netleştiriyoruz. Analiz ücreti, devam etmeniz halinde ilk ay faturanızdan düşülüyor.</p>
           <p className="mt-4 max-w-3xl text-sm leading-7 text-[#b7b2a8]">İlk ay temizlik, ikinci ve üçüncü ay test ayıdır. Dördüncü aydan sonrası ölçeklemedir. Bu sıraya uymadan atlanan her adım, sonraki ayda iki katı maliyetle geri gelir.</p>
-          <Link href="/audit" className="mt-8 inline-flex border border-[#d7ad4a] px-5 py-3 text-xs font-bold uppercase tracking-wider text-[#f5f1e8] transition-colors hover:bg-[#d7ad4a] hover:text-[#20211f]">Önce mağaza analizine bak →</Link>
         </section>
 
         <section className="mt-24 grid gap-12 border-t border-[#1c1b19] pt-10 lg:grid-cols-[0.7fr_1.3fr]">
@@ -123,10 +121,6 @@ export default function GrowthPage() {
         <section className="py-24 text-center">
           <h2 className="font-serif text-4xl tracking-tight md:text-5xl">Hangi aşamada olduğunuzdan emin değil misiniz?</h2>
           <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-[#6e6a61]">Mevcut durumu görmeden kapsam konuşmak erken olur. Mağaza analizi ile başlayın.</p>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Link href="/basvuru" className="bg-[#1c1b19] px-6 py-4 text-xs font-bold uppercase tracking-wider text-[#fbfaf6] transition-colors hover:bg-[#a77b16]">Görüşme ayarla →</Link>
-            <Link href="/audit" className="border border-[#1c1b19] px-6 py-4 text-xs font-bold uppercase tracking-wider text-[#1c1b19] transition-colors hover:bg-[#1c1b19] hover:text-[#fbfaf6]">Önce mağaza analizine bak →</Link>
-          </div>
         </section>
       </div>
     </main>

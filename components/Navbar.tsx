@@ -85,7 +85,7 @@ export default function Navbar() {
               onClick={() => setIsServicesOpen((open) => !open)}
               className="flex items-center gap-1.5 hover:text-[#a77b16] transition-colors cursor-pointer"
             >
-              HİZMETLER <span className="text-[10px] opacity-60">▼</span>
+              Hizmetler <span className="text-[10px] opacity-60">▼</span>
             </button>
 
             {isServicesOpen && (
@@ -137,9 +137,6 @@ export default function Navbar() {
             Mağaza Analizi
           </Link>
 
-          <Link href="/login" className="hover:text-[#a77b16] transition-colors">
-            Giriş
-          </Link>
         </div>
 
         {/* SAĞ BUTON */}
@@ -176,14 +173,11 @@ export default function Navbar() {
             <Link href="/audit" onClick={() => setIsServicesOpen(false)} className="flex min-h-11 items-center text-slate-700 hover:text-amber-600">
               Mağaza Analizi
             </Link>
-            <Link href="/login" onClick={() => setIsServicesOpen(false)} className="flex min-h-11 items-center text-slate-700 hover:text-amber-600">
-              Giriş
-            </Link>
             <Link href="/basvuru" onClick={() => setIsServicesOpen(false)} className="flex min-h-11 items-center text-slate-700 hover:text-amber-600">
               İlk Adım
             </Link>
             <div className="border-t border-amber-100 pt-4">
-              <span className="text-[10px] text-amber-600">HİZMETLER</span>
+              <span className="text-[10px] text-amber-600">Hizmetler</span>
               <div className="grid gap-3 mt-3">
                 {navServicesData.flatMap((category) => category.items).map((item) => (
                   <Link key={item.href} href={item.href} onClick={() => setIsServicesOpen(false)} className="flex min-h-11 items-center text-slate-700 hover:text-amber-600">

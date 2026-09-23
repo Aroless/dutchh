@@ -64,7 +64,7 @@ export default function Header() {
             onMouseLeave={() => setIsServicesOpen(false)}
           >
             <button className="flex items-center gap-1.5 hover:text-amber-600 transition-colors cursor-pointer text-slate-700">
-              HİZMETLER <span className="text-[10px] opacity-60">▼</span>
+              Hizmetler <span className="text-[10px] opacity-60">▼</span>
             </button>
 
             {isServicesOpen && (
@@ -104,9 +104,6 @@ export default function Header() {
             Hakkımızda
           </Link>
 
-          <Link href="/login" className="hover:text-amber-600 transition-colors text-slate-700 flex items-center gap-1">
-            Giriş 🔑
-          </Link>
         </nav>
 
         <Link

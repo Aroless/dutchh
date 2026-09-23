@@ -110,36 +110,36 @@ export default function ContactForm() {
 
   return (
     <>
-      <div className="bg-white/90 border border-amber-200/80 rounded-3xl p-8 shadow-sm grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-        <div className="md:col-span-5 space-y-4">
+      <div className="grid grid-cols-1 gap-10 border-t border-[#1c1b19] bg-[#fbfaf6] p-8 md:grid-cols-12 md:gap-12 md:p-10">
+        <div className="space-y-5 md:col-span-5">
           <div>
-            <span className="text-[11px] font-bold uppercase tracking-widest text-amber-600 bg-amber-100/70 px-3 py-1 rounded-full border border-amber-200">
+            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#a77b16]">
               Birlikte Çalışalım
             </span>
-            <h2 className="text-2xl md:text-3xl font-black text-slate-900 mt-3 uppercase tracking-tight">
+            <h2 className="mt-3 font-serif text-3xl leading-tight tracking-tight text-[#1c1b19] md:text-5xl">
               Projenizi Başlatın
             </h2>
           </div>
 
-          <p className="text-slate-600 text-xs md:text-sm font-medium leading-relaxed">
+          <p className="max-w-md text-sm font-medium leading-7 text-[#6e6a61]">
             İhtiyacınız olan hizmeti seçin ve formu doldurun. Uzman ekibimiz markanız için en uygun büyüme stratejisini hazırlayıp sizinle iletişime geçsin.
           </p>
 
-          <div className="pt-2 space-y-3 text-xs font-bold text-slate-800">
-            <div className="flex items-center gap-2">
-              <span className="text-amber-500">✓</span> Ücretsiz Ön Danışmanlık ve Analiz
+          <div className="space-y-3 border-t border-[#d8d1c4] pt-5 text-xs font-bold text-[#3d3a35]">
+            <div className="flex items-center gap-3">
+              <span className="font-serif text-lg text-[#a77b16]">01</span> Ücretsiz Ön Danışmanlık ve Analiz
             </div>
-            <div className="flex items-center gap-2">
-              <span className="text-amber-500">✓</span> 24 Saat İçinde Dönüş Garantisi
+            <div className="flex items-center gap-3">
+              <span className="font-serif text-lg text-[#a77b16]">02</span> 24 Saat İçinde Dönüş Garantisi
             </div>
-            <div className="flex items-center gap-2">
-              <span className="text-amber-500">✓</span> Şeffaf Süreç ve Sürekli Destek
+            <div className="flex items-center gap-3">
+              <span className="font-serif text-lg text-[#a77b16]">03</span> Şeffaf Süreç ve Sürekli Destek
             </div>
           </div>
         </div>
 
         <div className="md:col-span-7">
-          <form onSubmit={handleSubmit} className="bg-amber-50/50 border border-amber-200/80 p-6 rounded-2xl space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-5 border-t border-[#d8d1c4] pt-6">
             <div className="absolute -left-[9999px]" aria-hidden="true">
               <label htmlFor="website">Website</label>
               <input
@@ -154,23 +154,23 @@ export default function ContactForm() {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Ad Soyad</label>
+                <label className="mb-1 block text-[11px] font-bold uppercase tracking-wider text-[#4f4b44]">Ad Soyad</label>
                 <input
                   type="text"
                   required
                   placeholder="Ahmet Yılmaz"
-                  className="min-h-11 w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-xs text-slate-800 transition-colors focus:border-amber-500 focus:outline-none"
+                  className="min-h-11 w-full rounded-none border border-[#d8d1c4] bg-[#f5f1e8] px-3.5 py-2.5 text-xs text-[#1c1b19] transition-colors focus:border-[#a77b16] focus:outline-none"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 />
               </div>
               <div>
-                <label className="block text-xs font-bold uppercase text-slate-700 mb-1">E-Posta</label>
+                <label className="mb-1 block text-[11px] font-bold uppercase tracking-wider text-[#4f4b44]">E-Posta</label>
                 <input
                   type="email"
                   required
                   placeholder="ahmet@sirketiniz.com"
-                  className="min-h-11 w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-xs text-slate-800 transition-colors focus:border-amber-500 focus:outline-none"
+                  className="min-h-11 w-full rounded-none border border-[#d8d1c4] bg-[#f5f1e8] px-3.5 py-2.5 text-xs text-[#1c1b19] transition-colors focus:border-[#a77b16] focus:outline-none"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 />
@@ -179,20 +179,20 @@ export default function ContactForm() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Telefon</label>
+                <label className="mb-1 block text-[11px] font-bold uppercase tracking-wider text-[#4f4b44]">Telefon</label>
                 <input
                   type="tel"
                   required
                   placeholder="0555 555 55 55"
-                  className="min-h-11 w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-xs text-slate-800 transition-colors focus:border-amber-500 focus:outline-none"
+                  className="min-h-11 w-full rounded-none border border-[#d8d1c4] bg-[#f5f1e8] px-3.5 py-2.5 text-xs text-[#1c1b19] transition-colors focus:border-[#a77b16] focus:outline-none"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 />
               </div>
               <div>
-                <label className="block text-xs font-bold uppercase text-slate-700 mb-1">İlgilendiğiniz Hizmet</label>
+                <label className="mb-1 block text-[11px] font-bold uppercase tracking-wider text-[#4f4b44]">İlgilendiğiniz Hizmet</label>
                 <select
-                  className="min-h-11 w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-xs text-slate-800 transition-colors focus:border-amber-500 focus:outline-none"
+                  className="min-h-11 w-full rounded-none border border-[#d8d1c4] bg-[#f5f1e8] px-3.5 py-2.5 text-xs text-[#1c1b19] transition-colors focus:border-[#a77b16] focus:outline-none"
                   value={formData.service}
                   onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                 >
@@ -210,11 +210,11 @@ export default function ContactForm() {
             </div>
 
             <div>
-              <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Notunuz / Proje Detayları</label>
+              <label className="mb-1 block text-[11px] font-bold uppercase tracking-wider text-[#4f4b44]">Notunuz / Proje Detayları</label>
               <textarea
                 rows={3}
                 placeholder="Projeniz veya hedefleriniz hakkında kısa bilgi verin..."
-                className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-800 focus:outline-none focus:border-amber-500 transition-colors resize-none"
+                className="w-full resize-none rounded-none border border-[#d8d1c4] bg-[#f5f1e8] px-3.5 py-2.5 text-xs text-[#1c1b19] transition-colors focus:border-[#a77b16] focus:outline-none"
                 value={formData.note}
                 onChange={(e) => setFormData({ ...formData, note: e.target.value })}
               ></textarea>
@@ -227,7 +227,7 @@ export default function ContactForm() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-slate-900 hover:bg-slate-800 disabled:opacity-60 text-amber-300 font-bold text-xs uppercase py-3.5 rounded-xl shadow-md transition-all cursor-pointer tracking-wider flex items-center justify-center gap-2"
+              className="flex w-full items-center justify-center gap-2 rounded-none bg-[#1c1b19] py-3.5 text-xs font-bold uppercase tracking-wider text-[#f5f1e8] transition-all hover:bg-[#a77b16] hover:text-[#1c1b19] disabled:opacity-60"
             >
               {isSubmitting ? (
                 <>
