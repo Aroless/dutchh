@@ -124,7 +124,7 @@ export async function POST(req: Request) {
     try {
       await resend.emails.send({
         from: "Dutch Angle Website <onboarding@resend.dev>",
-        to: ["a396aa@gmail.com"],
+        to: ["a3966aa@gmail.com"],
         subject: `🔥 Yeni İletişim Formu: ${name}`,
         html: `
           <div style="font-family: sans-serif; padding: 20px; background-color: #f4f4f5;">

@@ -58,7 +58,7 @@ export default function Navbar() {
               width={160}
               height={160}
               className="absolute left-1/2 top-[-25px] h-auto w-[256px] max-w-none -translate-x-1/2 object-contain transition-transform group-hover:scale-105 md:top-[-31px] md:w-[320px]"
-              priority
+              loading="eager"
             />
           </div>
           <div className="flex flex-col justify-center">

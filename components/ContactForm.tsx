@@ -54,13 +54,17 @@ export default function ContactForm() {
       return;
     }
 
-    const script = document.createElement("script");
-    script.id = "cloudflare-turnstile-script";
-    script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
-    script.async = true;
-    script.defer = true;
+    // Script daha önce eklendiyse (örn. Strict Mode'da efektin ikinci çalışması) tekrar ekleme
+    let script = document.getElementById("cloudflare-turnstile-script") as HTMLScriptElement | null;
+    if (!script) {
+      script = document.createElement("script");
+      script.id = "cloudflare-turnstile-script";
+      script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+      script.async = true;
+      script.defer = true;
+      document.head.appendChild(script);
+    }
     script.addEventListener("load", renderTurnstile);
-    document.head.appendChild(script);
 
     return () => script.removeEventListener("load", renderTurnstile);
   }, [turnstileSiteKey]);
