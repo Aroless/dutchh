@@ -124,10 +124,7 @@ export default function Home() {
                 <li>— Ödeme akışında müşteriyi kaçıran adım hangisi</li>
               </ul>
               <div className="mt-7 flex flex-wrap gap-4">
-                <Link href="/basvuru" className="bg-[#d7ad4a] px-5 py-3 text-xs font-bold uppercase tracking-wider text-[#20211f] transition-colors hover:bg-[#f0d58e]">
-                  Ücretsiz ön tarama iste
-                </Link>
-                <Link href="/audit" className="border border-[#d7ad4a] px-5 py-3 text-xs font-bold uppercase tracking-wider text-[#f5f1e8] transition-colors hover:bg-[#d7ad4a] hover:text-[#20211f]">
+                <Link href="/audit" className="bg-[#d7ad4a] px-5 py-3 text-xs font-bold uppercase tracking-wider text-[#20211f] transition-colors hover:bg-[#f0d58e]">
                   Detaylı denetimi incele →
                 </Link>
               </div>

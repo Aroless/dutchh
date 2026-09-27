@@ -66,7 +66,7 @@ export default function Navbar() {
               Dutch <span className="text-[#a77b16]">Angle</span>
             </span>
             <span className="text-[8px] md:text-[9px] tracking-[0.24em] text-[#817b70] uppercase">
-              DİJİTAL GROWTH
+              DIGITAL GROWTH
             </span>
           </div>
         </Link>

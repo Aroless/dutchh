@@ -126,7 +126,6 @@ export default function AuditPage() {
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Link href="/basvuru" className="bg-[#d7ad4a] px-5 py-3 text-xs font-bold uppercase tracking-wider text-[#20211f] transition-colors hover:bg-[#f0d58e]">Denetim talep et</Link>
-            <Link href="/basvuru" className="border border-[#d7ad4a] px-5 py-3 text-xs font-bold uppercase tracking-wider text-[#f5f1e8] transition-colors hover:bg-[#d7ad4a] hover:text-[#20211f]">Önce ücretsiz ön tarama iste</Link>
           </div>
         </section>
 

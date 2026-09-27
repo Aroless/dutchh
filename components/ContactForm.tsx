@@ -18,6 +18,22 @@ declare global {
   }
 }
 
+const services = [
+  "E-Ticaret Kurulumu",
+  "E-Ticaret Yönetimi",
+  "Pazaryeri Mağaza Yönetimi",
+  "Google & Meta Reklamları",
+  "TikTok Ads & SEO",
+  "Bireysel / Kurumsal Web Tasarım",
+  "Sıfırdan Web Sitesi Kurulumu",
+  "İçerik Pazarlaması",
+  "Growth & Büyüme Danışmanlığı",
+];
+
+const labelClass = "mb-1.5 block text-[11px] font-bold uppercase tracking-wider text-[#4f4b44]";
+const inputClass =
+  "min-h-11 w-full rounded-none border border-[#d8d1c4] bg-[#fbfaf6] px-3.5 py-2.5 text-sm text-[#1c1b19] transition-colors placeholder:text-[#b7b2a8] hover:border-[#6e6a61] focus:border-[#1c1b19] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c79a2b]";
+
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
@@ -143,7 +159,10 @@ export default function ContactForm() {
         </div>
 
         <div className="md:col-span-7">
-          <form onSubmit={handleSubmit} className="space-y-5 border-t border-[#d8d1c4] pt-6">
+          <form
+            onSubmit={handleSubmit}
+            className="relative space-y-8 border border-[#1c1b19] bg-[#f5f1e8] p-6 shadow-[6px_6px_0_#1c1b19] md:p-8"
+          >
             <div className="absolute -left-[9999px]" aria-hidden="true">
               <label htmlFor="website">Website</label>
               <input
@@ -156,73 +175,93 @@ export default function ContactForm() {
                 onChange={(e) => setFormData({ ...formData, website: e.target.value })}
               />
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className="mb-1 block text-[11px] font-bold uppercase tracking-wider text-[#4f4b44]">Ad Soyad</label>
-                <input
-                  type="text"
-                  required
-                  placeholder="Ahmet Yılmaz"
-                  className="min-h-11 w-full rounded-none border border-[#d8d1c4] bg-[#f5f1e8] px-3.5 py-2.5 text-xs text-[#1c1b19] transition-colors focus:border-[#a77b16] focus:outline-none"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                />
+            <fieldset>
+              <legend className="mb-4 flex w-full items-baseline gap-3 border-b border-[#d8d1c4] pb-3">
+                <span className="font-serif text-xl text-[#a77b16]">01</span>
+                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#1c1b19]">Sizi tanıyalım</span>
+              </legend>
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <div>
+                  <label htmlFor="contact-name" className={labelClass}>Ad Soyad</label>
+                  <input
+                    id="contact-name"
+                    type="text"
+                    required
+                    autoComplete="name"
+                    placeholder="Ahmet Yılmaz"
+                    className={inputClass}
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="contact-email" className={labelClass}>E-Posta</label>
+                  <input
+                    id="contact-email"
+                    type="email"
+                    required
+                    autoComplete="email"
+                    placeholder="ahmet@sirketiniz.com"
+                    className={inputClass}
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  />
+                </div>
+                <div className="sm:col-span-2">
+                  <label htmlFor="contact-phone" className={labelClass}>Telefon</label>
+                  <input
+                    id="contact-phone"
+                    type="tel"
+                    required
+                    autoComplete="tel"
+                    placeholder="0555 555 55 55"
+                    className={inputClass}
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  />
+                </div>
               </div>
-              <div>
-                <label className="mb-1 block text-[11px] font-bold uppercase tracking-wider text-[#4f4b44]">E-Posta</label>
-                <input
-                  type="email"
-                  required
-                  placeholder="ahmet@sirketiniz.com"
-                  className="min-h-11 w-full rounded-none border border-[#d8d1c4] bg-[#f5f1e8] px-3.5 py-2.5 text-xs text-[#1c1b19] transition-colors focus:border-[#a77b16] focus:outline-none"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                />
-              </div>
-            </div>
+            </fieldset>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className="mb-1 block text-[11px] font-bold uppercase tracking-wider text-[#4f4b44]">Telefon</label>
-                <input
-                  type="tel"
-                  required
-                  placeholder="0555 555 55 55"
-                  className="min-h-11 w-full rounded-none border border-[#d8d1c4] bg-[#f5f1e8] px-3.5 py-2.5 text-xs text-[#1c1b19] transition-colors focus:border-[#a77b16] focus:outline-none"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                />
+            <fieldset>
+              <legend className="mb-4 flex w-full items-baseline gap-3 border-b border-[#d8d1c4] pb-3">
+                <span className="font-serif text-xl text-[#a77b16]">02</span>
+                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#1c1b19]">İlgilendiğiniz hizmet</span>
+              </legend>
+              <div className="flex flex-wrap gap-2">
+                {services.map((service) => (
+                  <label key={service} className="cursor-pointer">
+                    <input
+                      type="radio"
+                      name="service"
+                      value={service}
+                      checked={formData.service === service}
+                      onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                      className="peer sr-only"
+                    />
+                    <span className="inline-block border border-[#d8d1c4] bg-[#fbfaf6] px-3 py-2 text-xs font-semibold text-[#4f4b44] transition-colors hover:border-[#1c1b19] peer-checked:border-[#1c1b19] peer-checked:bg-[#1c1b19] peer-checked:text-[#f5f1e8] peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-[#a77b16]">
+                      {service}
+                    </span>
+                  </label>
+                ))}
               </div>
-              <div>
-                <label className="mb-1 block text-[11px] font-bold uppercase tracking-wider text-[#4f4b44]">İlgilendiğiniz Hizmet</label>
-                <select
-                  className="min-h-11 w-full rounded-none border border-[#d8d1c4] bg-[#f5f1e8] px-3.5 py-2.5 text-xs text-[#1c1b19] transition-colors focus:border-[#a77b16] focus:outline-none"
-                  value={formData.service}
-                  onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                >
-                  <option value="E-Ticaret Kurulumu">E-Ticaret Kurulumu</option>
-                  <option value="E-Ticaret Yönetimi">E-Ticaret Yönetimi</option>
-                  <option value="Pazaryeri Mağaza Yönetimi">Pazaryeri Mağaza Yönetimi</option>
-                  <option value="Google & Meta Reklamları">Google & Meta Reklamları</option>
-                  <option value="TikTok Ads & SEO">TikTok Ads & SEO</option>
-                  <option value="Bireysel / Kurumsal Web Tasarım">Bireysel / Kurumsal Web Tasarım</option>
-                  <option value="Sıfırdan Web Sitesi Kurulumu">Sıfırdan Web Sitesi Kurulumu</option>
-                  <option value="İçerik Pazarlaması">İçerik Pazarlaması</option>
-                  <option value="Growth & Büyüme Danışmanlığı">Growth & Büyüme Danışmanlığı</option>
-                </select>
-              </div>
-            </div>
+            </fieldset>
 
-            <div>
-              <label className="mb-1 block text-[11px] font-bold uppercase tracking-wider text-[#4f4b44]">Notunuz / Proje Detayları</label>
+            <fieldset>
+              <legend className="mb-4 flex w-full items-baseline gap-3 border-b border-[#d8d1c4] pb-3">
+                <span className="font-serif text-xl text-[#a77b16]">03</span>
+                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#1c1b19]">Proje detayları</span>
+              </legend>
+              <label htmlFor="contact-note" className={labelClass}>Notunuz</label>
               <textarea
-                rows={3}
+                id="contact-note"
+                rows={4}
                 placeholder="Projeniz veya hedefleriniz hakkında kısa bilgi verin..."
-                className="w-full resize-none rounded-none border border-[#d8d1c4] bg-[#f5f1e8] px-3.5 py-2.5 text-xs text-[#1c1b19] transition-colors focus:border-[#a77b16] focus:outline-none"
+                className={`${inputClass} resize-none`}
                 value={formData.note}
                 onChange={(e) => setFormData({ ...formData, note: e.target.value })}
               ></textarea>
-            </div>
+            </fieldset>
 
             {turnstileSiteKey && (
               <div className="min-h-[65px]" ref={turnstileRef} />
@@ -231,7 +270,7 @@ export default function ContactForm() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="flex w-full items-center justify-center gap-2 rounded-none bg-[#1c1b19] py-3.5 text-xs font-bold uppercase tracking-wider text-[#f5f1e8] transition-all hover:bg-[#a77b16] hover:text-[#1c1b19] disabled:opacity-60"
+              className="group flex w-full items-center justify-center gap-2 rounded-none bg-[#1c1b19] py-4 text-xs font-bold uppercase tracking-wider text-[#f5f1e8] transition-all hover:bg-[#a77b16] hover:text-[#1c1b19] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a77b16] disabled:opacity-60"
             >
               {isSubmitting ? (
                 <>
