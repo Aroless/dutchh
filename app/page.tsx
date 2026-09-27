@@ -43,14 +43,10 @@ export default function Home() {
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="text-[#a77b16] font-serif text-lg">02</span>
-                  Canlı Satış & ROAS Analiz Paneli
-                </li>
-                <li className="flex items-center gap-3">
-                  <span className="text-[#a77b16] font-serif text-lg">03</span>
                   Veri Odaklı Dijital Pazarlama
                 </li>
                 <li className="flex items-center gap-3">
-                  <span className="text-[#a77b16] font-serif text-lg">04</span>
+                  <span className="text-[#a77b16] font-serif text-lg">03</span>
                   Hızlı Kurulum & Aksiyon
                 </li>
               </ul>
@@ -114,7 +110,7 @@ export default function Home() {
                 Mağaza analizi
               </span>
               <h2 className="mt-4 max-w-3xl font-serif text-3xl leading-tight tracking-tight md:text-5xl">
-                Mağazanız neden satmıyor? İki iş gününde ücretsiz söyleyelim.
+                Mağazanız neden potansiyelinin altında kalıyor? İki iş gününde ücretsiz söyleyelim.
               </h2>
               <p className="mt-5 max-w-2xl text-sm leading-7 text-[#b7b2a8]">
                 Sitenizin adresini bırakın. Mağazanızı elle inceleyip satış kaybettiren en önemli üç noktayı tek sayfalık bir notta size gönderelim. Not sizin kalır; isterseniz kendiniz uygularsınız.

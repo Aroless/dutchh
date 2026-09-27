@@ -55,16 +55,11 @@ export default function AuditPage() {
         <header className="mt-12 border-t border-[#1c1b19] pt-10">
           <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#a77b16]">E-ticaret performans denetimi</span>
           <h1 className="mt-5 max-w-4xl font-serif text-5xl leading-[1.02] tracking-tight md:text-7xl">
-            Siteniz trafik alıyor ama satmıyorsa, sorun tahmin edilecek bir şey değil — ölçülecek bir şey.
+            Siteniz ziyaretçi alıyor ama satış gelmiyorsa, bunun bir sebebi var. Gelin birlikte bulalım.
           </h1>
           <p className="mt-7 max-w-3xl text-base leading-8 text-[#6e6a61] md:text-lg">
-            Mağazanızın ve reklam hesabınızın para kaybettiren noktalarını buluyoruz. Her şeye bakmıyoruz — en çok satış kaybettiren yerlere bakıyoruz. Tahmin yok, &quot;bence&quot; yok. Ölçüm, ekran görüntüsü ve yapılacaklar listesi.
+            Mağazanıza ve reklam hesabınıza dışarıdan, dikkatli bir gözle bakıyoruz ve paranın nereden kaçtığını gösteriyoruz. Her detayı didiklemiyoruz, size en çok satış kaybettiren yerlere odaklanıyoruz. Tahminle konuşmuyoruz; ne gördüysek ekran görüntüsüyle gösteriyor, ne yapmanız gerektiğini de sade bir listeyle anlatıyoruz.
           </p>
-          <div className="mt-8 flex flex-wrap items-center gap-4 text-sm font-semibold">
-            <span className="border-y border-[#d8d1c4] py-3">3 iş günü</span>
-            <span className="border-y border-[#d8d1c4] py-3">7.000 TL + KDV</span>
-            <span className="py-3 text-[#a77b16]">İlk ay faturanızdan düşülür</span>
-          </div>
           <Link href="/basvuru" className="mt-8 inline-flex bg-[#1c1b19] px-6 py-4 text-xs font-bold uppercase tracking-wider text-[#fbfaf6] transition-colors hover:bg-[#a77b16]">
             Denetim talep et →
           </Link>
@@ -121,10 +116,10 @@ export default function AuditPage() {
         </section>
 
         <section className="mt-24 border-t border-[#1c1b19] bg-[#20211f] p-8 text-[#f5f1e8] md:p-12">
-          <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#d7ad4a]">Fiyat ve süreç</span>
-          <h2 className="mt-4 font-serif text-4xl tracking-tight md:text-5xl">7.000 TL + KDV</h2>
+          <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#d7ad4a]">Süreç</span>
+          <h2 className="mt-4 font-serif text-4xl tracking-tight md:text-5xl">Nasıl ilerliyoruz?</h2>
           <p className="mt-5 max-w-3xl text-sm leading-7 text-[#b7b2a8]">
-            Teslim süresi 3 iş günü. Denetim sonrası bizimle yönetim hizmetine başlarsanız bu tutarın tamamını ilk ay faturanızdan düşüyoruz. Raporu teslim aldıktan sonraki 7 gün içinde işinize yaramadığını düşünürseniz ücreti iade ediyoruz; rapor yine sizde kalır.
+            Teslim süresi 3 iş günü. Denetim sonrası bizimle yönetim hizmetine başlarsanız denetim ücretinin tamamını ilk ay faturanızdan düşüyoruz. Raporu teslim aldıktan sonraki 7 gün içinde işinize yaramadığını düşünürseniz ücreti iade ediyoruz; rapor yine sizde kalır.
           </p>
           <p className="mt-4 max-w-3xl text-sm leading-7 text-[#b7b2a8]">
             Şifre vermeniz gerekmiyor — Google hesaplarına kullanıcı olarak ekleniyoruz, mağaza paneline salt okunur giriyoruz. Süreç bitince erişimleri kaldırabilirsiniz.
@@ -138,8 +133,7 @@ export default function AuditPage() {
         <section className="mt-24 border-t border-[#1c1b19] pt-10">
           <div className="max-w-2xl">
             <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#a77b16]">Ücretsiz ön tarama</span>
-            <h2 className="mt-3 font-serif text-4xl tracking-tight md:text-5xl">Hiçbir hesabınıza erişim istemiyoruz.</h2>
-            <p className="mt-5 text-sm leading-7 text-[#6e6a61]">Mağazanızı dışarıdan, bir müşterinin gördüğü gibi inceliyoruz — site adresi yeterli.</p>
+            <p className="mt-3 text-sm leading-7 text-[#6e6a61]">Mağazanızı dışarıdan, bir müşterinin gördüğü gibi inceliyoruz — site adresi yeterli.</p>
           </div>
           <div className="mt-10 grid gap-x-8 gap-y-8 md:grid-cols-2">
             {previewAreas.map(([title, text], index) => (
