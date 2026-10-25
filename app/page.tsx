@@ -156,7 +156,7 @@ export default function Home() {
 
       {/* 7. FORM DOLDURMA ALANI */}
       <Reveal>
-        <section id="form-section" className="max-w-6xl mx-auto px-6 py-6">
+        <section id="form-section" className="max-w-6xl mx-auto mt-16 px-6 py-6 md:mt-24">
           <ContactForm />
         </section>
       </Reveal>

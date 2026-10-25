@@ -15,8 +15,9 @@ export default function CameraBackdrop() {
 
   return createPortal(
     <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-      {/* -4 derece eğim; scale-115 eğilen sahnenin köşelerde boşluk bırakmaması için */}
-      <div className="absolute inset-0 scale-115 -rotate-4 opacity-15">
+      {/* Odak çekme sürümünde netleşen kadrajın birebir aynısı: 1.22 kat büyütme, -5 derece eğim.
+          Büyütme eğilen sahnenin köşelerde boşluk bırakmaması için de gerekli */}
+      <div className="absolute inset-0 scale-122 -rotate-5 opacity-30">
         <CorridorScene className="size-full" />
       </div>
     </div>,
