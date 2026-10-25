@@ -162,7 +162,7 @@ Test altyapısı yok. Değişiklikleri `npm run lint` ve `npm run build` ile do�
 **`globals.css` içindeki özel CSS.** Yeni kural ekleme, var olanları da kendi başına silme veya taşıma. İçindekiler:
 - **Hizmet detay sayfası:** `.service-page` ve altındaki `.service-*` class'ları `app/hizmetler/[category]/[slug]` sayfasının görünümünü CSS'ten yönetiyor. Bu sayfada değişiklik yaparken ilgili class'ları da kontrol et.
 - **Genel davranışlar:** tüm `a` ve `button` elemanlarında renk geçiş animasyonu, `::selection` rengi, smooth scroll.
-- **Marquee:** `@keyframes marquee` anasayfadaki `ServicesMarquee` tarafından kullanılıyor. `.animate-marquee` class'ı eski üst banttandı, artık kullanılmıyor.
+- **Marquee:** `@keyframes marquee` anasayfadaki `ServicesMarquee` tarafından kullanılıyor; silme.
 
 ## Notlar
 
