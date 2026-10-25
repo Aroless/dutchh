@@ -134,7 +134,7 @@ Test altyapısı yok. Değişiklikleri `npm run lint` ve `npm run build` ile do�
 ## Stil
 
 - Tailwind 4 kullanılıyor, `tailwind.config` dosyası yok. Yukarıdaki "yeni renk/font → tailwind.config" kuralı bu projede `app/globals.css` için geçerli: yeni renk/font eklemeden önce sor.
-- `app/layout.tsx` her sayfaya kayan üst bandı, `Navbar` ve `Footer`'ı ekler. `app/template.tsx` ise sayfa geçişlerine framer-motion animasyonu uygular.
+- `app/layout.tsx` her sayfaya açılış animasyonunu (`IntroSplash`, yalnızca tam sayfa yüklemesinde), `Navbar`'ı ve `Footer`'ı ekler. `app/template.tsx` ise sayfa geçişlerine framer-motion animasyonu uygular.
 - `@/*` yol takma adı proje köküne işaret eder.
 
 ## CSS kullanımı (mevcut durum)
@@ -162,7 +162,7 @@ Test altyapısı yok. Değişiklikleri `npm run lint` ve `npm run build` ile do�
 **`globals.css` içindeki özel CSS.** Yeni kural ekleme, var olanları da kendi başına silme veya taşıma. İçindekiler:
 - **Hizmet detay sayfası:** `.service-page` ve altındaki `.service-*` class'ları `app/hizmetler/[category]/[slug]` sayfasının görünümünü CSS'ten yönetiyor. Bu sayfada değişiklik yaparken ilgili class'ları da kontrol et.
 - **Genel davranışlar:** tüm `a` ve `button` elemanlarında renk geçiş animasyonu, `::selection` rengi, smooth scroll.
-- **Üst bant animasyonu:** `.animate-marquee` ve `@keyframes marquee`. `prefers-reduced-motion` açıkken animasyon kapanıyor.
+- **Marquee:** `@keyframes marquee` anasayfadaki `ServicesMarquee` tarafından kullanılıyor. `.animate-marquee` class'ı eski üst banttandı, artık kullanılmıyor.
 
 ## Notlar
 

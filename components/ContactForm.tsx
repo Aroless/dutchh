@@ -145,26 +145,26 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="border border-ink bg-paper-light p-1.5">
+    <div className="mx-auto max-w-5xl border border-ink bg-paper-light p-1.5">
       <div className="grid grid-cols-1 border border-line md:grid-cols-12">
 
         {/* SOL: koyu bilgi paneli */}
-        <aside className="flex flex-col gap-8 bg-night p-8 text-paper md:col-span-5 md:p-10">
+        <aside className="flex flex-col gap-6 bg-night p-6 text-paper md:col-span-5 md:p-8">
           <div>
             <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-gold-light">
               Birlikte Çalışalım
             </span>
-            <h2 className="mt-3 font-serif text-3xl leading-tight tracking-tight md:text-5xl">
+            <h2 className="mt-3 font-serif text-3xl leading-tight tracking-tight md:text-4xl">
               Projenizi Başlatın
             </h2>
-            <p className="mt-5 max-w-md text-sm leading-7 text-faded">
+            <p className="mt-4 max-w-md text-sm leading-6 text-faded">
               İhtiyacınız olan hizmeti seçin ve formu doldurun. Uzman ekibimiz markanız için en uygun büyüme stratejisini hazırlayıp sizinle iletişime geçsin.
             </p>
           </div>
 
           <div>
             <h3 className="text-[11px] font-bold uppercase tracking-[0.2em] text-gold-light">Sonra ne olur?</h3>
-            <ol className="mt-5 space-y-5 border-l border-night-line pl-6">
+            <ol className="mt-4 space-y-4 border-l border-night-line pl-6">
               {steps.map((step, index) => (
                 <li key={step} className="relative text-sm font-semibold">
                   <span aria-hidden="true" className="absolute top-1.5 -left-[29px] size-2 rounded-full bg-gold-light"></span>
@@ -197,11 +197,11 @@ export default function ContactForm() {
         </aside>
 
         {/* SAĞ: form veya başarı kartı */}
-        <div className="p-8 md:col-span-7 md:p-10">
+        <div className="p-6 md:col-span-7 md:p-8">
           {showSuccess && (
             <div role="status" className="flex h-full flex-col justify-center gap-5 py-6">
               <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-gold">✦ Başvuru alındı</span>
-              <h3 className="font-serif text-4xl leading-tight tracking-tight text-ink md:text-5xl">
+              <h3 className="font-serif text-3xl leading-tight tracking-tight text-ink md:text-4xl">
                 Teşekkürler, talebiniz bize ulaştı.
               </h3>
               <p className="max-w-md text-sm leading-7 text-muted-ink">
@@ -218,7 +218,7 @@ export default function ContactForm() {
           )}
 
           {/* Başarıdan sonra form gizlenir ama DOM'da kalır: Turnstile widget'ı yeniden kurulmak zorunda kalmasın */}
-          <form onSubmit={handleSubmit} hidden={showSuccess} className="relative grid grid-cols-1 gap-x-6 gap-y-7 sm:grid-cols-2">
+          <form onSubmit={handleSubmit} hidden={showSuccess} className="relative grid grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-2">
             <div className="absolute -left-[9999px]" aria-hidden="true">
               <label htmlFor="website">Website</label>
               <input
@@ -245,7 +245,7 @@ export default function ContactForm() {
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                       className="peer sr-only"
                     />
-                    <span className="inline-block border border-line bg-paper px-3 py-2 text-xs font-semibold text-[#4f4b44] transition-colors hover:border-ink peer-checked:border-ink peer-checked:bg-ink peer-checked:text-paper peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-gold">
+                    <span className="inline-block border border-line bg-paper px-2.5 py-1.5 text-xs font-semibold text-[#4f4b44] transition-colors hover:border-ink peer-checked:border-ink peer-checked:bg-ink peer-checked:text-paper peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-gold">
                       {service}
                     </span>
                   </label>
@@ -306,7 +306,7 @@ export default function ContactForm() {
               <div className="relative">
                 <textarea
                   id="contact-note"
-                  rows={3}
+                  rows={2}
                   placeholder="Projeniz veya hedefleriniz hakkında kısa bilgi verin..."
                   className={`${inputClass} block resize-none`}
                   value={formData.note}
@@ -323,7 +323,7 @@ export default function ContactForm() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="group flex w-full items-center justify-center gap-3 rounded-none bg-ink py-4 text-xs font-bold uppercase tracking-wider text-paper transition-colors hover:bg-gold hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold disabled:opacity-60 sm:col-span-2"
+              className="group flex w-full items-center justify-center gap-3 rounded-none bg-ink py-3.5 text-xs font-bold uppercase tracking-wider text-paper transition-colors hover:bg-gold hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold disabled:opacity-60 sm:col-span-2"
             >
               {isSubmitting ? (
                 <>
