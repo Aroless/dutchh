@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ContactForm from "@/components/ContactForm";
+import ServicesMarquee from "@/components/ServicesMarquee";
 import SolutionsSection from "@/components/SolutionsSection";
 
 export default function Home() {
@@ -55,6 +56,9 @@ export default function Home() {
 
         </div>
       </header>
+
+      {/* HİZMETLER KAYAN BANT */}
+      <ServicesMarquee className="mb-10" />
 
       {/* 6. GROWTH STRATEJİ DANIŞMANLIĞI BÖLÜMÜ */}
       <section id="growth" className="max-w-6xl mx-auto px-6 py-6">
