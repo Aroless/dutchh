@@ -145,14 +145,14 @@ export default function ClientDashboard() {
           </div>
         </div>
 
-        {/* 2. BÖLÜM: Canlı E-Ticaret & Reklam Verileri */}
+        {/* 2. BÖLÜM: E-Ticaret & Reklam Verileri (admin panelinden elle güncellenir) */}
         <div>
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg font-bold text-white flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
               E-Ticaret & Reklam Performansı
             </h3>
-            <span className="text-xs text-gray-500">Canlı Veri Senkronizasyonu</span>
+            <span className="text-xs text-gray-500">Ekibimiz tarafından düzenli güncellenir</span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">

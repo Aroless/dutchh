@@ -166,6 +166,8 @@ Test altyapısı yok. Değişiklikleri `npm run lint` ve `npm run build` ile do�
 
 ## Notlar
 
+- **Canlı veri/panel yok.** Müşteri panelindeki (`/dashboard`) metrikler admin panelinden elle girilir; otomatik senkronizasyon yoktur. Sitede veya panelde "canlı panel", "canlı veri", "anlık senkronizasyon" gibi bir vaat yazma.
+- Marka adı **Dutch Angle**. Eski ad "Lejit" kodda kalmamalı. Ararken Türkçe büyük harfe dikkat: `grep -i lejit` "LEJİT"i (noktalı İ) bulmaz; `git grep -P "(?i)lej[iİıI]t"` kullan.
 - `app/hakkimizda/page.tsx` metinleri hâlâ yer tutucu (`[Buraya ... gelecek]`). Sayfa bu yüzden `robots: { index: false }` ile gizli ve sitemap'te yok. Gerçek içerik gelince ikisini de geri al. Şirket bilgisi uydurma; metni kullanıcıdan iste.
 - `components/PackageCalculator.tsx` hiçbir sayfada kullanılmıyor (Google Apps Script'e form gönderen bir paket hesaplayıcı). Silme, kullanıcıya sor.
 - `app/template.tsx` sayfa geçişinde sadece `y` kaydırması yapar. Opaklık animasyonu bilerek kaldırıldı: içerik JS yüklenmeden görünür kalmalı.

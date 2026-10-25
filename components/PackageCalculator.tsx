@@ -97,7 +97,7 @@ export default function PackageCalculator() {
     <div className="bg-slate-900 border-2 border-slate-800 p-6 md:p-8 shadow-[8px_8px_0px_0px_#000]">
       <div className="bg-slate-950 border-2 border-slate-800 p-6 mb-8 shadow-[4px_4px_0px_0px_#000]">
         <h2 className="text-2xl font-black uppercase text-white tracking-tight">
-          LEJİT / ŞEFFAF PAKET OLUŞTURUCU
+          DUTCH ANGLE / ŞEFFAF PAKET OLUŞTURUCU
         </h2>
         <p className="font-medium text-slate-400 text-sm mt-1">
           İhtiyacınız olan hizmetleri seçin, anında aylık net yatırım maliyetinizi hesaplayın.

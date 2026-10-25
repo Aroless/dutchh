@@ -192,7 +192,7 @@ export default function AdminPage() {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center pb-6 border-b border-gray-800 gap-4">
           <div>
             <h1 className="text-3xl font-bold text-yellow-500 tracking-wider">
-              LEJİT. <span className="text-white text-xl font-normal">| Yönetici Paneli</span>
+              DUTCH ANGLE. <span className="text-white text-xl font-normal">| Yönetici Paneli</span>
             </h1>
             <p className="text-gray-400 text-sm mt-1">
               Gelen talepler, Müşteri Performansı ve Canlı Veri Yönetimi

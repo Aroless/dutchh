@@ -91,7 +91,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             <div className="lg:col-span-5">
               <div className="service-architecture border p-8 relative">
                 <div className="service-label text-xs font-bold tracking-widest uppercase mb-6 flex items-center gap-2">
-                  <span>✦</span> LEJİT BÜYÜME MİMARİSİ
+                  <span>✦</span> DUTCH ANGLE BÜYÜME MİMARİSİ
                 </div>
                 <div className="space-y-4">
                   {service.highlights.map((item, idx) => (
