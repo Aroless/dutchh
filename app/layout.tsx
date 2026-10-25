@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar"; // Navbar'ını buraya import ediyoruz
 import Footer from "@/components/Footer";
+import IntroSplash from "@/components/IntroSplash";
 import { openGraphDefaults, siteUrl } from "@/lib/site";
 
 const geistSans = Geist({
@@ -38,7 +39,9 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col overflow-x-hidden">
-        
+        {/* 0. AÇILIŞ ANİMASYONU (yalnızca tam sayfa yüklemesinde oynar) */}
+        <IntroSplash />
+
         {/* 1. ÜST BANT (Her sayfada sabit kalması için buraya ekliyoruz) */}
         <div className="border-b border-line bg-paper px-4 py-2.5 overflow-hidden text-[10px] font-bold uppercase tracking-[0.22em] text-muted-ink">
           <div className="animate-marquee whitespace-nowrap flex gap-14">
