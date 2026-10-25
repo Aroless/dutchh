@@ -10,9 +10,9 @@ export default function Home() {
 
   return (
     <div className="home-editorial min-h-screen text-ink pb-20 relative">
-      {/* Arka plan kamerası: sayfanın arkasında saydam, kaydırdıkça eğilir; formdan hemen önceki boş alana gelince odak çeker.
+      {/* Arka plan: sabit, hafif eğik ve saydam koridor sahnesi.
           Bu div'e zemin rengi verme, arka planı örter (krem zemin body'den gelir) */}
-      <CameraBackdrop focusTargetId="camera-focus" />
+      <CameraBackdrop />
 
       
       
@@ -153,9 +153,6 @@ export default function Home() {
           </div>
         </section>
       </Reveal>
-
-      {/* KAMERA ODAK ALANI: bilerek boş. Arka plandaki koridor ve logo burada netleşir; form kutusu ekranın ortasını kapattığı için odak formdan önce çekilir */}
-      <div id="camera-focus" aria-hidden="true" className="h-[60vh]"></div>
 
       {/* 7. FORM DOLDURMA ALANI */}
       <Reveal>
