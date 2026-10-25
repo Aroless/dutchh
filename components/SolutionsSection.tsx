@@ -25,19 +25,19 @@ function SolutionItem({ solution, index }: { solution: Solution; index: number }
   const number = String(index + 1).padStart(2, "0");
 
   return (
-    <li className="group border border-[#1c1b19] bg-[#fbfaf6] p-1.5 transition-transform duration-300 hover:-translate-y-1">
-      <article className="grid h-full grid-cols-1 gap-6 border border-[#d8d1c4] p-6 transition-colors duration-300 group-hover:border-[#c79a2b] md:p-10 lg:grid-cols-12 lg:gap-12">
+    <li className="group border border-ink bg-paper-light p-1.5 transition-transform duration-300 hover:-translate-y-1">
+      <article className="grid h-full grid-cols-1 gap-6 border border-line p-6 transition-colors duration-300 group-hover:border-accent md:p-10 lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-5">
-          <div className="mb-6 flex items-center justify-between border-b border-[#d8d1c4] pb-4">
-            <span className="font-serif text-4xl text-[#a77b16] md:text-5xl">{number}</span>
-            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#6e6a61]">Çözüm</span>
+          <div className="mb-6 flex items-center justify-between border-b border-line pb-4">
+            <span className="font-serif text-4xl text-gold md:text-5xl">{number}</span>
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-ink">Çözüm</span>
           </div>
-          <h3 className="font-serif text-xl leading-snug tracking-tight text-[#1c1b19] md:text-2xl">
+          <h3 className="font-serif text-xl leading-snug tracking-tight text-ink md:text-2xl">
             {solution.title}
           </h3>
-          <span aria-hidden="true" className="mt-5 block h-0.5 w-10 bg-[#c79a2b] transition-all duration-300 group-hover:w-20"></span>
+          <span aria-hidden="true" className="mt-5 block h-0.5 w-10 bg-accent transition-all duration-300 group-hover:w-20"></span>
         </div>
-        <p className="text-sm leading-7 text-[#6e6a61] lg:col-span-7 lg:border-l lg:border-[#d8d1c4] lg:pl-12">
+        <p className="text-sm leading-7 text-muted-ink lg:col-span-7 lg:border-l lg:border-line lg:pl-12">
           {solution.description}
         </p>
       </article>
@@ -48,17 +48,17 @@ function SolutionItem({ solution, index }: { solution: Solution; index: number }
 export default function SolutionsSection() {
   return (
     <section aria-labelledby="solutions-heading" className="mx-auto max-w-6xl px-6 py-6">
-      <div className="border-t border-[#1c1b19] bg-[#f5f1e8] p-8 md:p-10">
-        <header className="mb-10 flex flex-col gap-4 border-b border-[#d8d1c4] pb-8 lg:flex-row lg:items-end lg:justify-between">
+      <div className="border-t border-ink bg-paper p-8 md:p-10">
+        <header className="mb-10 flex flex-col gap-4 border-b border-line pb-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
-            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#a77b16]">
+            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-gold">
               ÇÖZÜMLERİMİZ
             </span>
-            <h2 id="solutions-heading" className="mt-4 font-serif text-3xl leading-tight tracking-tight text-[#1c1b19] md:text-4xl">
+            <h2 id="solutions-heading" className="mt-4 font-serif text-3xl leading-tight tracking-tight text-ink md:text-4xl">
               Satış getiren dijital altyapıyı uçtan uca kuruyoruz.
             </h2>
           </div>
-          <span className="font-serif text-sm text-[#6e6a61]">
+          <span className="font-serif text-sm text-muted-ink">
             {String(solutions.length).padStart(2, "0")} temel çözüm
           </span>
         </header>

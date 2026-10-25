@@ -137,26 +137,27 @@ Test altyapısı yok. Değişiklikleri `npm run lint` ve `npm run build` ile do�
 
 ## CSS kullanımı (mevcut durum)
 
-Kod, yukarıdaki Tailwind kurallarıyla tam uyumlu değil. Mevcut durum şöyle:
+**Renk paleti.** Tasarım kağıt/editoryal bir görünüm hedefliyor: serif başlıklar, krem arka plan, altın vurgu. Renkler `app/globals.css` içinde `:root` değişkeni olarak tanımlı ve `@theme inline` ile Tailwind'e bağlı. Bileşenlerde hex yerine bu class'ları kullan (`bg-paper`, `text-muted-ink`, `border-line`, `hover:text-gold`, `text-gold/30` gibi):
 
-**Renk paleti.** Tasarım kağıt/editoryal bir görünüm hedefliyor: serif başlıklar, krem arka plan, altın vurgu. Renkler `app/globals.css` içinde `:root` değişkeni olarak tanımlı, ama Tailwind temasına (`@theme`) bağlı değiller. Bu yüzden bileşenlerde aynı renkler arbitrary hex değerleriyle yazılıyor:
-
-| Değişken | Hex | Kullanım |
+| Token | Hex | Kullanım |
 |---|---|---|
-| `--paper` | `#f5f1e8` | ana arka plan |
-| `--paper-light` | `#fbfaf6` | kart arka planı |
-| `--ink` | `#1c1b19` | metin, koyu kenarlık |
-| `--muted-ink` | `#6e6a61` | ikincil metin |
-| `--line` | `#d8d1c4` | ince kenarlık |
-| `--accent` | `#c79a2b` | vurgu |
-| `--accent-soft` | `#eee2bd` | yumuşak vurgu |
-| — | `#a77b16` | koyu altın, etiket/kategori metni (en sık kullanılan renk, değişkeni yok) |
-| — | `#b7b2a8` | soluk metin (değişkeni yok) |
+| `paper` | `#f5f1e8` | ana arka plan |
+| `paper-light` | `#fbfaf6` | kart arka planı |
+| `ink` | `#1c1b19` | metin, koyu kenarlık |
+| `muted-ink` | `#6e6a61` | ikincil metin |
+| `line` | `#d8d1c4` | ince kenarlık |
+| `accent` | `#c79a2b` | vurgu |
+| `accent-soft` | `#eee2bd` | yumuşak vurgu |
+| `gold` | `#a77b16` | koyu altın, etiket/kategori metni |
+| `gold-light` | `#d7ad4a` | koyu zemin üzerinde altın |
+| `faded` | `#b7b2a8` | soluk metin |
+| `night` | `#20211f` | koyu bölüm zemini |
+| `night-line` | `#5a5953` | koyu zemin üzerinde kenarlık |
 
-- Yeni kod yazarken bu paletin dışına çıkma, var olan hex değerlerini kullan (`text-[#6e6a61]` gibi). Bu, "arbitrary değer kullanma" kuralının bilinçli bir istisnası. Yeni bir renk gerekiyorsa önce sor.
-- Paleti `@theme`'e taşıyıp `bg-paper`, `text-ink` gibi class'lara geçmek planlanabilir, ama bu bir `globals.css` değişikliği. Kullanıcı istemeden yapma.
+- Paletin dışına çıkma. Yeni bir renk gerekiyorsa önce sor; eklenecekse hem `:root`'a hem `@theme inline` bloğuna eklenir.
+- Birkaç dosyada bir iki kez kullanılan nadir tonlar (`#4f4b44`, `#817d74`, `#aaa296` vb.) hâlâ arbitrary hex olarak duruyor. Bunlara token açılmadı.
 
-**`globals.css` içindeki özel CSS (142 satır).** Yeni kural ekleme, var olanları da kendi başına silme veya taşıma. İçindekiler:
+**`globals.css` içindeki özel CSS.** Yeni kural ekleme, var olanları da kendi başına silme veya taşıma. İçindekiler:
 - **Global ezmeler:** `main[class*="bg-gradient-to-br"]` seçicisi, `main` etiketinde `bg-gradient-to-br` class'ı olan sayfaların arka planını, köşe yuvarlaklığını, gölgelerini ve başlık fontlarını zorla değiştiriyor (`!important` dahil). Bu sayfalarda Tailwind class'ları beklendiği gibi çalışmayabilir. Bir sayfada stil tutmuyorsa önce buraya bak.
 - **Hizmet detay sayfası:** `.service-page` ve altındaki `.service-*` class'ları `app/hizmetler/[category]/[slug]` sayfasının görünümünü CSS'ten yönetiyor. Bu sayfada değişiklik yaparken ilgili class'ları da kontrol et.
 - **Genel davranışlar:** tüm `a` ve `button` elemanlarında renk geçiş animasyonu, `::selection` rengi, smooth scroll.

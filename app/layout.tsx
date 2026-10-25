@@ -37,12 +37,12 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col overflow-x-hidden">
         
         {/* 1. ÜST BANT (Her sayfada sabit kalması için buraya ekliyoruz) */}
-        <div className="border-b border-[#d8d1c4] bg-[#f5f1e8] px-4 py-2.5 overflow-hidden text-[10px] font-bold uppercase tracking-[0.22em] text-[#6e6a61]">
+        <div className="border-b border-line bg-paper px-4 py-2.5 overflow-hidden text-[10px] font-bold uppercase tracking-[0.22em] text-muted-ink">
           <div className="animate-marquee whitespace-nowrap flex gap-14">
             <span>✦ E-TİCARETİNİZİ BÜYÜTÜN</span>
-            <span className="text-[#a77b16]">/ ÖLÇÜLEBİLİR DİJİTAL PAZARLAMA</span>
+            <span className="text-gold">/ ÖLÇÜLEBİLİR DİJİTAL PAZARLAMA</span>
             <span>✦ VERİ ODAKLI BÜYÜME STRATEJİLERİ</span>
-            <span className="text-[#a77b16]">/ DAHA FAZLA SATIŞ, DAHA AZ KARMAŞA</span>
+            <span className="text-gold">/ DAHA FAZLA SATIŞ, DAHA AZ KARMAŞA</span>
           </div>
         </div>
 

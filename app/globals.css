@@ -12,8 +12,29 @@ html {
   --line: #d8d1c4;
   --accent: #c79a2b;
   --accent-soft: #eee2bd;
+  --gold: #a77b16;
+  --gold-light: #d7ad4a;
+  --faded: #b7b2a8;
+  --night: #20211f;
+  --night-line: #5a5953;
   --font-display: Georgia, "Times New Roman", serif;
   --font-body: Arial, Helvetica, sans-serif;
+}
+
+/* Paleti Tailwind class'larına bağlar: bg-paper, text-ink, border-line, text-gold/30 ... */
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-light: var(--paper-light);
+  --color-ink: var(--ink);
+  --color-muted-ink: var(--muted-ink);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-faded: var(--faded);
+  --color-night: var(--night);
+  --color-night-line: var(--night-line);
 }
 
 body {
@@ -74,7 +95,7 @@ main[class*="bg-gradient-to-br"] p {
 
 .service-page .service-category,
 .service-page .service-label {
-  color: #a77b16;
+  color: var(--gold);
 }
 
 .service-page .service-architecture,
@@ -91,7 +112,7 @@ main[class*="bg-gradient-to-br"] p {
 }
 
 .service-page .service-number {
-  color: #a77b16;
+  color: var(--gold);
 }
 
 .service-page .service-benefit {

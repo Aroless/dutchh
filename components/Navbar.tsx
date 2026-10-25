@@ -46,7 +46,7 @@ export default function Navbar() {
 
   return (
     // h-20: Navbar yüksekliği | items-center: Dikeyde ortalama
-    <nav className="border-b border-[#d8d1c4] bg-[#f5f1e8]/95 backdrop-blur-md sticky top-0 z-40 px-6 h-[76px] flex items-center overflow-visible">
+    <nav className="border-b border-line bg-paper/95 backdrop-blur-md sticky top-0 z-40 px-6 h-[76px] flex items-center overflow-visible">
       <div className="max-w-6xl w-full mx-auto flex justify-between items-center gap-3">
         
         {/* LOGO VE YAZI (items-center ile dikeyde tam ortalandı) */}
@@ -62,8 +62,8 @@ export default function Navbar() {
             />
           </div>
           <div className="flex flex-col justify-center">
-            <span className="font-serif text-sm md:text-base tracking-tight text-[#1c1b19]">
-              Dutch <span className="text-[#a77b16]">Angle</span>
+            <span className="font-serif text-sm md:text-base tracking-tight text-ink">
+              Dutch <span className="text-gold">Angle</span>
             </span>
             <span className="text-[8px] md:text-[9px] tracking-[0.24em] text-[#817b70] uppercase">
               DIGITAL GROWTH
@@ -83,16 +83,16 @@ export default function Navbar() {
               aria-expanded={isServicesOpen}
               aria-controls="desktop-services-menu"
               onClick={() => setIsServicesOpen((open) => !open)}
-              className="flex items-center gap-1.5 hover:text-[#a77b16] transition-colors cursor-pointer"
+              className="flex items-center gap-1.5 hover:text-gold transition-colors cursor-pointer"
             >
               Hizmetler <span className="text-[10px] opacity-60">▼</span>
             </button>
 
             {isServicesOpen && (
-              <div id="desktop-services-menu" className="absolute top-full -left-12 w-[680px] bg-[#fbfaf6] border border-[#d8d1c4] p-7 grid grid-cols-3 gap-7 z-50">
+              <div id="desktop-services-menu" className="absolute top-full -left-12 w-[680px] bg-paper-light border border-line p-7 grid grid-cols-3 gap-7 z-50">
                 {navServicesData.map((cat, idx) => (
                   <div key={idx} className="space-y-3">
-                    <h4 className="text-[11px] font-bold text-[#a77b16] border-b border-[#d8d1c4] pb-2 uppercase tracking-wider">
+                    <h4 className="text-[11px] font-bold text-gold border-b border-line pb-2 uppercase tracking-wider">
                       {cat.title}
                     </h4>
                     <ul className="space-y-2">
@@ -103,11 +103,11 @@ export default function Navbar() {
                             onClick={() => setIsServicesOpen(false)}
                             className="group flex flex-col items-start hover:opacity-80 transition-opacity"
                           >
-                            <span className="text-xs font-medium text-[#3d3a35] group-hover:text-[#a77b16] transition-colors">
+                            <span className="text-xs font-medium text-[#3d3a35] group-hover:text-gold transition-colors">
                               {item.name}
                             </span>
                             {item.tag && (
-                              <span className="text-[9px] font-bold bg-[#eee2bd] text-[#806016] px-1.5 py-0.5 rounded mt-0.5">
+                              <span className="text-[9px] font-bold bg-accent-soft text-[#806016] px-1.5 py-0.5 rounded mt-0.5">
                                 {item.tag}
                               </span>
                             )}
@@ -121,19 +121,19 @@ export default function Navbar() {
             )}
           </div>
 
-          <Link href="/hakkimizda" className="hover:text-[#a77b16] transition-colors">
+          <Link href="/hakkimizda" className="hover:text-gold transition-colors">
             Hakkımızda
           </Link>
 
-          <Link href="/blog" className="hover:text-[#a77b16] transition-colors">
+          <Link href="/blog" className="hover:text-gold transition-colors">
             Blog
           </Link>
 
-          <Link href="/growth" className="hover:text-[#a77b16] transition-colors">
+          <Link href="/growth" className="hover:text-gold transition-colors">
             Growth
           </Link>
 
-          <Link href="/audit" className="hover:text-[#a77b16] transition-colors">
+          <Link href="/audit" className="hover:text-gold transition-colors">
             Mağaza Analizi
           </Link>
 
@@ -142,7 +142,7 @@ export default function Navbar() {
         {/* SAĞ BUTON */}
         <Link
           href="/basvuru"
-          className="hidden sm:inline-flex border border-[#1c1b19] bg-[#1c1b19] hover:bg-[#a77b16] hover:border-[#a77b16] text-[#fbfaf6] font-bold text-[11px] uppercase tracking-wider px-5 py-2.5 rounded-none transition-all cursor-pointer"
+          className="hidden sm:inline-flex border border-ink bg-ink hover:bg-gold hover:border-gold text-paper-light font-bold text-[11px] uppercase tracking-wider px-5 py-2.5 rounded-none transition-all cursor-pointer"
         >
           İlk Adım
         </Link>
@@ -152,14 +152,14 @@ export default function Navbar() {
           aria-expanded={isServicesOpen}
           aria-controls="mobile-navigation"
           onClick={() => setIsServicesOpen((open) => !open)}
-          className="md:hidden min-h-11 border border-[#c8c0b1] bg-transparent px-3 py-2 text-xs font-bold text-[#1c1b19] rounded-none"
+          className="md:hidden min-h-11 border border-[#c8c0b1] bg-transparent px-3 py-2 text-xs font-bold text-ink rounded-none"
         >
           MENÜ {isServicesOpen ? "▲" : "▼"}
         </button>
       </div>
 
       {isServicesOpen && (
-        <div id="mobile-navigation" className="md:hidden absolute left-0 right-0 top-full max-h-[calc(100vh-7rem)] overflow-y-auto overscroll-contain border-b border-[#d8d1c4] bg-[#fbfaf6] p-5">
+        <div id="mobile-navigation" className="md:hidden absolute left-0 right-0 top-full max-h-[calc(100vh-7rem)] overflow-y-auto overscroll-contain border-b border-line bg-paper-light p-5">
           <div className="grid gap-4 text-xs font-bold uppercase tracking-wide">
             <Link href="/hakkimizda" onClick={() => setIsServicesOpen(false)} className="flex min-h-11 items-center text-slate-700 hover:text-amber-600">
               Hakkımızda

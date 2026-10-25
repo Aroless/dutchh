@@ -2,19 +2,19 @@ import Link from "next/link";
 
 export default function HakkimizdaPage() {
   return (
-    <main className="min-h-screen bg-[#f5f1e8] px-6 pb-24 text-[#1c1b19]">
+    <main className="min-h-screen bg-paper px-6 pb-24 text-ink">
       
       {/* HERO BÖLÜMÜ */}
       <section className="mx-auto max-w-6xl pt-20">
-        <div className="border-t border-[#1c1b19] pt-10">
-          <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#a77b16]">
+        <div className="border-t border-ink pt-10">
+          <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-gold">
             DUTCH ANGLE HİKAYESİ & MİSYONU
           </span>
         <h1 className="mt-5 max-w-4xl font-serif text-5xl leading-[1.02] tracking-tight md:text-7xl">
           DİJİTAL BÜYÜME YOLCULUĞUNUZDA <br />
-          <span className="text-[#a77b16]">ŞEFFAF VE GÜÇLÜ</span> ORTAĞINIZ.
+          <span className="text-gold">ŞEFFAF VE GÜÇLÜ</span> ORTAĞINIZ.
         </h1>
-        <p className="mt-7 max-w-2xl text-base leading-8 text-[#6e6a61] md:text-lg">
+        <p className="mt-7 max-w-2xl text-base leading-8 text-muted-ink md:text-lg">
           [Buraya genel hakkımızda tanıtım yazısı gelecek. Markanızın kuruluş amacı, uzmanlık alanları ve dijital pazarlamadaki yaklaşımından bahsedebilirsiniz.]
         </p>
         </div>
@@ -24,32 +24,32 @@ export default function HakkimizdaPage() {
       <section className="mx-auto max-w-6xl py-20">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
           
-          <div className="border-t border-[#1c1b19] pt-5">
-            <div className="font-serif text-2xl text-[#a77b16]">
+          <div className="border-t border-ink pt-5">
+            <div className="font-serif text-2xl text-gold">
               01
             </div>
             <h3 className="mt-5 text-lg font-semibold">Misyonumuz</h3>
-            <p className="mt-3 text-sm leading-7 text-[#6e6a61]">
+            <p className="mt-3 text-sm leading-7 text-muted-ink">
               [Buraya misyon metni gelecek. Müşterilerinize sunduğunuz değer ve e-ticaret/reklam süreçlerindeki hedefleriniz.]
             </p>
           </div>
 
-          <div className="border-t border-[#1c1b19] pt-5">
-            <div className="font-serif text-2xl text-[#a77b16]">
+          <div className="border-t border-ink pt-5">
+            <div className="font-serif text-2xl text-gold">
               02
             </div>
             <h3 className="mt-5 text-lg font-semibold">Vizyonumuz</h3>
-            <p className="mt-3 text-sm leading-7 text-[#6e6a61]">
+            <p className="mt-3 text-sm leading-7 text-muted-ink">
               [Buraya vizyon metni gelecek. Gelecekte konumlanmak istediğiniz nokta ve dijital ekosisteme katkınız.]
             </p>
           </div>
 
-          <div className="border-t border-[#1c1b19] pt-5">
-            <div className="font-serif text-2xl text-[#a77b16]">
+          <div className="border-t border-ink pt-5">
+            <div className="font-serif text-2xl text-gold">
               03
             </div>
             <h3 className="mt-5 text-lg font-semibold">Yaklaşımımız</h3>
-            <p className="mt-3 text-sm leading-7 text-[#6e6a61]">
+            <p className="mt-3 text-sm leading-7 text-muted-ink">
               [Buraya çalışma prensipleriniz gelecek. Şeffaflık, veri odaklılık ve canlı performans takibi vurgusu.]
             </p>
           </div>
@@ -59,19 +59,19 @@ export default function HakkimizdaPage() {
 
       {/* DETAYLI İÇERİK BÖLÜMÜ */}
       <section className="mx-auto max-w-6xl">
-        <div className="border-t border-[#1c1b19] pt-10">
+        <div className="border-t border-ink pt-10">
           <h2 className="font-serif text-4xl tracking-tight md:text-5xl">Biz Kimiz?</h2>
-          <p className="mt-5 max-w-3xl text-base leading-8 text-[#6e6a61]">
+          <p className="mt-5 max-w-3xl text-base leading-8 text-muted-ink">
             [Buraya detaylı hikaye metni eklenecek. Ekip yapısı, tecrübe, yönetilen reklam bütçeleri veya B2B / E-Ticaret odaklı stratejiler hakkında detaylar girebilirsiniz.]
           </p>
           
-          <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-[#d8d1c4] pt-5">
-            <span className="text-sm font-semibold text-[#6e6a61]">
+          <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-line pt-5">
+            <span className="text-sm font-semibold text-muted-ink">
               Bizimle çalışmaya hazır mısınız?
             </span>
             <Link
               href="/basvuru"
-              className="bg-[#1c1b19] px-6 py-4 text-sm font-bold text-[#fbfaf6] transition-colors hover:bg-[#a77b16]"
+              className="bg-ink px-6 py-4 text-sm font-bold text-paper-light transition-colors hover:bg-gold"
             >
               İletişime Geçin
             </Link>
