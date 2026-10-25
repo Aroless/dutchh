@@ -30,13 +30,29 @@ const services = [
   "Growth & Büyüme Danışmanlığı",
 ];
 
-const labelClass = "mb-1.5 block text-[11px] font-bold uppercase tracking-wider text-[#4f4b44]";
+const steps = [
+  "Ücretsiz Ön Danışmanlık ve Analiz",
+  "24 Saat İçinde Dönüş Garantisi",
+  "Şeffaf Süreç ve Sürekli Destek",
+];
+
+const labelClass = "block text-[11px] font-bold uppercase tracking-wider text-[#4f4b44]";
+// Alt çizgili alan; odakta altındaki altın çizgi (FieldLine) soldan sağa dolar
 const inputClass =
-  "min-h-11 w-full rounded-none border border-line bg-paper-light px-3.5 py-2.5 text-sm text-ink transition-colors placeholder:text-faded hover:border-muted-ink focus:border-ink focus:outline-none focus-visible:ring-2 focus-visible:ring-accent";
+  "peer w-full rounded-none border-0 border-b border-line bg-transparent px-0 py-2.5 text-sm text-ink transition-colors placeholder:text-faded hover:border-muted-ink focus:outline-none";
+
+function FieldLine() {
+  return (
+    <span
+      aria-hidden="true"
+      className="pointer-events-none absolute bottom-0 left-0 h-0.5 w-0 bg-accent transition-all duration-300 peer-focus:w-full motion-reduce:transition-none"
+    />
+  );
+}
 
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
   const [turnstileToken, setTurnstileToken] = useState("");
   const turnstileRef = useRef<HTMLDivElement>(null);
   const turnstileWidgetId = useRef<string | null>(null);
@@ -105,7 +121,7 @@ export default function ContactForm() {
       const result = await res.json();
 
       if (res.ok && result.success) {
-        setShowSuccessModal(true);
+        setShowSuccess(true);
         setFormData({
           name: "",
           email: "",
@@ -129,37 +145,72 @@ export default function ContactForm() {
   };
 
   return (
-    <>
-      <div className="grid grid-cols-1 gap-10 border-t border-ink bg-paper-light p-8 md:grid-cols-12 md:gap-12 md:p-10">
-        <div className="space-y-5 md:col-span-5">
+    <div className="border border-ink bg-paper-light p-1.5">
+      <div className="grid grid-cols-1 border border-line md:grid-cols-12">
+
+        {/* SOL: koyu bilgi paneli */}
+        <aside className="flex flex-col gap-8 bg-night p-8 text-paper md:col-span-5 md:p-10">
           <div>
-            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-gold">
+            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-gold-light">
               Birlikte Çalışalım
             </span>
-            <h2 className="mt-3 font-serif text-3xl leading-tight tracking-tight text-ink md:text-5xl">
+            <h2 className="mt-3 font-serif text-3xl leading-tight tracking-tight md:text-5xl">
               Projenizi Başlatın
             </h2>
+            <p className="mt-5 max-w-md text-sm leading-7 text-faded">
+              İhtiyacınız olan hizmeti seçin ve formu doldurun. Uzman ekibimiz markanız için en uygun büyüme stratejisini hazırlayıp sizinle iletişime geçsin.
+            </p>
           </div>
 
-          <p className="max-w-md text-sm font-medium leading-7 text-muted-ink">
-            İhtiyacınız olan hizmeti seçin ve formu doldurun. Uzman ekibimiz markanız için en uygun büyüme stratejisini hazırlayıp sizinle iletişime geçsin.
-          </p>
-
-          <div className="space-y-3 border-t border-line pt-5 text-xs font-bold text-[#3d3a35]">
-            <div className="flex items-center gap-3">
-              <span className="font-serif text-lg text-gold">01</span> Ücretsiz Ön Danışmanlık ve Analiz
-            </div>
-            <div className="flex items-center gap-3">
-              <span className="font-serif text-lg text-gold">02</span> 24 Saat İçinde Dönüş Garantisi
-            </div>
-            <div className="flex items-center gap-3">
-              <span className="font-serif text-lg text-gold">03</span> Şeffaf Süreç ve Sürekli Destek
-            </div>
+          <div>
+            <h3 className="text-[11px] font-bold uppercase tracking-[0.2em] text-gold-light">Sonra ne olur?</h3>
+            <ol className="mt-5 space-y-5 border-l border-night-line pl-6">
+              {steps.map((step, index) => (
+                <li key={step} className="relative text-sm font-semibold">
+                  <span aria-hidden="true" className="absolute top-1.5 -left-[29px] size-2 rounded-full bg-gold-light"></span>
+                  <span className="mr-3 font-serif text-lg text-gold-light">{String(index + 1).padStart(2, "0")}</span>
+                  {step}
+                </li>
+              ))}
+            </ol>
           </div>
-        </div>
 
-        <div className="md:col-span-7 md:border-l md:border-line md:pl-12">
-          <form onSubmit={handleSubmit} className="relative grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div className="mt-auto border-t border-night-line pt-6 text-sm">
+            <span className="block text-[11px] font-bold uppercase tracking-[0.2em] text-faded">Doğrudan ulaşın</span>
+            <a
+              href="https://www.instagram.com/dutchangle_tr/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 inline-flex items-center gap-2 text-paper transition-colors hover:text-gold-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-light"
+            >
+              Instagram&apos;da @dutchangle_tr <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </aside>
+
+        {/* SAĞ: form veya başarı kartı */}
+        <div className="p-8 md:col-span-7 md:p-10">
+          {showSuccess && (
+            <div role="status" className="flex h-full flex-col justify-center gap-5 py-6">
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-gold">✦ Başvuru alındı</span>
+              <h3 className="font-serif text-4xl leading-tight tracking-tight text-ink md:text-5xl">
+                Teşekkürler, talebiniz bize ulaştı.
+              </h3>
+              <p className="max-w-md text-sm leading-7 text-muted-ink">
+                Projenizi inceleyip 24 saat içinde sizinle iletişime geçeceğiz.
+              </p>
+              <button
+                type="button"
+                onClick={() => setShowSuccess(false)}
+                className="mt-2 self-start border border-ink px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-ink transition-colors hover:bg-ink hover:text-paper focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+              >
+                Yeni başvuru oluştur
+              </button>
+            </div>
+          )}
+
+          {/* Başarıdan sonra form gizlenir ama DOM'da kalır: Turnstile widget'ı yeniden kurulmak zorunda kalmasın */}
+          <form onSubmit={handleSubmit} hidden={showSuccess} className="relative grid grid-cols-1 gap-x-6 gap-y-7 sm:grid-cols-2">
             <div className="absolute -left-[9999px]" aria-hidden="true">
               <label htmlFor="website">Website</label>
               <input
@@ -172,72 +223,89 @@ export default function ContactForm() {
                 onChange={(e) => setFormData({ ...formData, website: e.target.value })}
               />
             </div>
+
+            <fieldset className="sm:col-span-2">
+              <legend className={`${labelClass} mb-3`}>İlgilendiğiniz hizmet</legend>
+              <div className="flex flex-wrap gap-2">
+                {services.map((service) => (
+                  <label key={service} className="cursor-pointer">
+                    <input
+                      type="radio"
+                      name="service"
+                      value={service}
+                      checked={formData.service === service}
+                      onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                      className="peer sr-only"
+                    />
+                    <span className="inline-block border border-line bg-paper px-3 py-2 text-xs font-semibold text-[#4f4b44] transition-colors hover:border-ink peer-checked:border-ink peer-checked:bg-ink peer-checked:text-paper peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-gold">
+                      {service}
+                    </span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+
             <div>
               <label htmlFor="contact-name" className={labelClass}>Ad Soyad</label>
-              <input
-                id="contact-name"
-                type="text"
-                required
-                autoComplete="name"
-                placeholder="Ahmet Yılmaz"
-                className={inputClass}
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              />
+              <div className="relative">
+                <input
+                  id="contact-name"
+                  type="text"
+                  required
+                  autoComplete="name"
+                  placeholder="Ahmet Yılmaz"
+                  className={inputClass}
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                />
+                <FieldLine />
+              </div>
             </div>
             <div>
               <label htmlFor="contact-email" className={labelClass}>E-Posta</label>
-              <input
-                id="contact-email"
-                type="email"
-                required
-                autoComplete="email"
-                placeholder="ahmet@sirketiniz.com"
-                className={inputClass}
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              />
-            </div>
-            <div>
-              <label htmlFor="contact-phone" className={labelClass}>Telefon</label>
-              <input
-                id="contact-phone"
-                type="tel"
-                required
-                autoComplete="tel"
-                placeholder="0555 555 55 55"
-                className={inputClass}
-                value={formData.phone}
-                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-              />
-            </div>
-            <div>
-              <label htmlFor="contact-service" className={labelClass}>İlgilendiğiniz hizmet</label>
               <div className="relative">
-                <select
-                  id="contact-service"
-                  name="service"
-                  className={`${inputClass} cursor-pointer appearance-none pr-10`}
-                  value={formData.service}
-                  onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                >
-                  {services.map((service) => (
-                    <option key={service} value={service}>{service}</option>
-                  ))}
-                </select>
-                <span aria-hidden="true" className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 text-xs text-muted-ink">▾</span>
+                <input
+                  id="contact-email"
+                  type="email"
+                  required
+                  autoComplete="email"
+                  placeholder="ahmet@sirketiniz.com"
+                  className={inputClass}
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                />
+                <FieldLine />
+              </div>
+            </div>
+            <div className="sm:col-span-2">
+              <label htmlFor="contact-phone" className={labelClass}>Telefon</label>
+              <div className="relative">
+                <input
+                  id="contact-phone"
+                  type="tel"
+                  required
+                  autoComplete="tel"
+                  placeholder="0555 555 55 55"
+                  className={inputClass}
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                />
+                <FieldLine />
               </div>
             </div>
             <div className="sm:col-span-2">
               <label htmlFor="contact-note" className={labelClass}>Notunuz</label>
-              <textarea
-                id="contact-note"
-                rows={3}
-                placeholder="Projeniz veya hedefleriniz hakkında kısa bilgi verin..."
-                className={`${inputClass} resize-none`}
-                value={formData.note}
-                onChange={(e) => setFormData({ ...formData, note: e.target.value })}
-              ></textarea>
+              <div className="relative">
+                <textarea
+                  id="contact-note"
+                  rows={3}
+                  placeholder="Projeniz veya hedefleriniz hakkında kısa bilgi verin..."
+                  className={`${inputClass} block resize-none`}
+                  value={formData.note}
+                  onChange={(e) => setFormData({ ...formData, note: e.target.value })}
+                ></textarea>
+                <FieldLine />
+              </div>
             </div>
 
             {turnstileSiteKey && (
@@ -247,50 +315,23 @@ export default function ContactForm() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="group mt-2 flex w-full sm:col-span-2 items-center justify-center gap-2 rounded-none bg-ink py-4 text-xs font-bold uppercase tracking-wider text-paper transition-all hover:bg-gold hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold disabled:opacity-60"
+              className="group flex w-full items-center justify-center gap-3 rounded-none bg-ink py-4 text-xs font-bold uppercase tracking-wider text-paper transition-colors hover:bg-gold hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold disabled:opacity-60 sm:col-span-2"
             >
               {isSubmitting ? (
                 <>
-                  <span className="w-3.5 h-3.5 border-2 border-accent border-t-transparent rounded-full animate-spin"></span>
-                  GÖNDERİLİYOR...
+                  <span className="size-3.5 animate-spin rounded-full border-2 border-accent border-t-transparent"></span>
+                  Gönderiliyor...
                 </>
               ) : (
-                "BAŞVURUYU GÖNDER ➔"
+                <>
+                  Başvuruyu Gönder
+                  <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none">→</span>
+                </>
               )}
             </button>
           </form>
         </div>
       </div>
-
-      {/* BAŞARILI BİLDİRİM MODALI */}
-      {showSuccessModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink/40 p-4">
-          <div
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="success-title"
-            className="w-full max-w-md space-y-4 border-t-2 border-ink bg-paper-light p-6 text-center sm:p-8"
-          >
-            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-gold">✦ Başvuru</span>
-
-            <h3 id="success-title" className="font-serif text-3xl tracking-tight text-ink">
-              Talebiniz alındı.
-            </h3>
-
-            <p className="text-sm leading-7 text-muted-ink">
-              Bilgileriniz Dutch Angle ekibine ulaştı. Projenizi inceleyip 24 saat içinde sizinle iletişime geçeceğiz.
-            </p>
-
-            <button
-              type="button"
-              onClick={() => setShowSuccessModal(false)}
-              className="mt-2 w-full cursor-pointer bg-ink py-3.5 text-xs font-bold uppercase tracking-wider text-paper hover:bg-gold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
-            >
-              Tamamdır ➔
-            </button>
-          </div>
-        </div>
-      )}
-    </>
+    </div>
   );
 }
