@@ -12,11 +12,11 @@ function ServiceList({ hidden = false }: { hidden?: boolean }) {
           <Link
             href={`/hizmetler/${service.categorySlug}/${service.slug}`}
             tabIndex={hidden ? -1 : undefined}
-            className="px-6 font-serif text-2xl whitespace-nowrap text-ink transition-colors hover:text-gold focus-visible:text-gold focus-visible:outline-none md:px-10 md:text-4xl"
+            className="px-5 font-serif text-lg whitespace-nowrap text-muted-ink transition-colors hover:text-ink focus-visible:text-ink focus-visible:outline-none md:px-8 md:text-2xl"
           >
             {service.title}
           </Link>
-          <span aria-hidden="true" className="text-lg text-accent md:text-xl">✦</span>
+          <span aria-hidden="true" className="text-xs text-accent md:text-sm">✦</span>
         </li>
       ))}
     </ul>
@@ -25,9 +25,9 @@ function ServiceList({ hidden = false }: { hidden?: boolean }) {
 
 export default function ServicesMarquee({ className = "" }: { className?: string }) {
   return (
-    <nav aria-label="Hizmetlerimiz" className={`group overflow-hidden border-y border-ink py-6 md:py-8 ${className}`}>
-      {/* globals.css'teki marquee keyframe'i; hover/focus'ta durur, "hareketi azalt" açıksa hiç kaymaz */}
-      <div className="flex w-max animate-[marquee_45s_linear_infinite] group-hover:[animation-play-state:paused] group-focus-within:[animation-play-state:paused] motion-reduce:animate-none">
+    <nav aria-label="Hizmetlerimiz" className={`group overflow-hidden border-y border-line py-4 mask-x-from-90% mask-x-to-100% md:py-5 ${className}`}>
+      {/* globals.css'teki marquee keyframe'i. Kenarlar maskeyle yumuşakça silinir. Yalnızca klavye odağında durur (hover'da ani durma yok), "hareketi azalt" açıksa hiç kaymaz */}
+      <div className="flex w-max animate-[marquee_60s_linear_infinite] group-focus-within:[animation-play-state:paused] motion-reduce:animate-none">
         <ServiceList />
         <ServiceList hidden />
       </div>
