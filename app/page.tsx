@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ContactForm from "@/components/ContactForm";
+import Reveal from "@/components/Reveal";
 import ServicesMarquee from "@/components/ServicesMarquee";
 import SolutionsSection from "@/components/SolutionsSection";
 
@@ -65,89 +66,95 @@ export default function Home() {
       <ServicesMarquee className="mb-10" />
 
       {/* 6. GROWTH STRATEJİ DANIŞMANLIĞI BÖLÜMÜ */}
-      <section id="growth" className="max-w-6xl mx-auto px-6 py-6">
-        <div className="home-growth bg-night border-t border-ink text-white p-8 md:p-10 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <Reveal>
+        <section id="growth" className="max-w-6xl mx-auto px-6 py-6">
+          <div className="home-growth bg-night border-t border-ink text-white p-8 md:p-10 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
-          <div className="mb-8 relative z-10">
-            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-gold-light">
-              GROWTH STRATEJİLERİ
-            </span>
-            <h2 className="font-serif text-3xl md:text-4xl mt-3 tracking-tight text-white">
-              Büyüme tesadüf değildir. Sırası vardır.
-            </h2>
-            <p className="text-slate-400 text-xs md:text-sm font-medium mt-2 max-w-3xl leading-relaxed">
-              Reklam vermek büyümek değildir. Önce neyin bozuk olduğunu buluyor, sonra çalışan sistemi doğru sırayla ölçekliyoruz.
-            </p>
+            <div className="mb-8 relative z-10">
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-gold-light">
+                GROWTH STRATEJİLERİ
+              </span>
+              <h2 className="font-serif text-3xl md:text-4xl mt-3 tracking-tight text-white">
+                Büyüme tesadüf değildir. Sırası vardır.
+              </h2>
+              <p className="text-slate-400 text-xs md:text-sm font-medium mt-2 max-w-3xl leading-relaxed">
+                Reklam vermek büyümek değildir. Önce neyin bozuk olduğunu buluyor, sonra çalışan sistemi doğru sırayla ölçekliyoruz.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
+              <div className="home-growth-item border-t border-night-line p-6">
+                <div className="text-gold-light font-serif text-xl mb-2">01. Kuruluş</div>
+                <p className="text-slate-300 text-xs leading-relaxed font-medium">Henüz neyin işe yaradığı belli değil; ilk satışlar ve müşteri davranışları doğru zemini gösterir.</p>
+              </div>
+
+              <div className="home-growth-item border-t border-night-line p-6">
+                <div className="text-gold-light font-serif text-xl mb-2">02. Tekrarlanabilirlik</div>
+                <p className="text-slate-300 text-xs leading-relaxed font-medium">Satış geliyor ama hangi kanalın ve ürünün kazandırdığı net değil; ölçüm ve birim ekonomi burada başlar.</p>
+              </div>
+
+              <div className="home-growth-item border-t border-night-line p-6">
+                <div className="text-gold-light font-serif text-xl mb-2">03. Ölçekleme</div>
+                <p className="text-slate-300 text-xs leading-relaxed font-medium">Ne yaptığınız belli; şimdi bütçeyi, kreatifi ve operasyonu verim düşmeden büyütmek gerekiyor.</p>
+              </div>
+
+              <div className="home-growth-item border-t border-night-line p-6">
+                <div className="text-gold-light font-serif text-xl mb-2">04. Verimlilik</div>
+                <p className="text-slate-300 text-xs leading-relaxed font-medium">Büyüdünüz; artık geri gelen müşteriler, marka aramaları ve kârlı büyüme öncelikli.</p>
+              </div>
+            </div>
+
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
-            <div className="home-growth-item border-t border-night-line p-6">
-              <div className="text-gold-light font-serif text-xl mb-2">01. Kuruluş</div>
-              <p className="text-slate-300 text-xs leading-relaxed font-medium">Henüz neyin işe yaradığı belli değil; ilk satışlar ve müşteri davranışları doğru zemini gösterir.</p>
-            </div>
-
-            <div className="home-growth-item border-t border-night-line p-6">
-              <div className="text-gold-light font-serif text-xl mb-2">02. Tekrarlanabilirlik</div>
-              <p className="text-slate-300 text-xs leading-relaxed font-medium">Satış geliyor ama hangi kanalın ve ürünün kazandırdığı net değil; ölçüm ve birim ekonomi burada başlar.</p>
-            </div>
-
-            <div className="home-growth-item border-t border-night-line p-6">
-              <div className="text-gold-light font-serif text-xl mb-2">03. Ölçekleme</div>
-              <p className="text-slate-300 text-xs leading-relaxed font-medium">Ne yaptığınız belli; şimdi bütçeyi, kreatifi ve operasyonu verim düşmeden büyütmek gerekiyor.</p>
-            </div>
-
-            <div className="home-growth-item border-t border-night-line p-6">
-              <div className="text-gold-light font-serif text-xl mb-2">04. Verimlilik</div>
-              <p className="text-slate-300 text-xs leading-relaxed font-medium">Büyüdünüz; artık geri gelen müşteriler, marka aramaları ve kârlı büyüme öncelikli.</p>
-            </div>
-          </div>
-
-        </div>
-      </section>
+        </section>
+      </Reveal>
 
       {/* 4. ÇÖZÜMLERİMİZ */}
       <SolutionsSection />
 
       {/* MAĞAZA AUDIT */}
-      <section className="max-w-6xl mx-auto px-6 py-6">
-        <div className="border-t border-ink bg-night p-8 text-paper md:p-10">
-          <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
-            <div>
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-gold-light">
-                Mağaza analizi
-              </span>
-              <h2 className="mt-4 max-w-3xl font-serif text-3xl leading-tight tracking-tight md:text-5xl">
-                Mağazanız neden potansiyelinin altında kalıyor? İki iş gününde ücretsiz söyleyelim.
-              </h2>
-              <p className="mt-5 max-w-2xl text-sm leading-7 text-faded">
-                Sitenizin adresini bırakın. Mağazanızı elle inceleyip satış kaybettiren en önemli üç noktayı tek sayfalık bir notta size gönderelim. Not sizin kalır; isterseniz kendiniz uygularsınız.
-              </p>
-            </div>
-
-            <div>
-              <ul className="space-y-3 border-t border-night-line pt-5 text-sm text-line">
-                <li>— Ölçümünüz doğru mu, reklam bütçeniz nereye gidiyor</li>
-                <li>— Ürün sayfalarınız rakiplerinize göre nerede duruyor</li>
-                <li>— Ödeme akışında müşteriyi kaçıran adım hangisi</li>
-              </ul>
-              <div className="mt-7 flex flex-wrap gap-4">
-                <Link href="/audit" className="bg-gold-light px-5 py-3 text-xs font-bold uppercase tracking-wider text-night transition-colors hover:bg-[#f0d58e]">
-                  Detaylı denetimi incele →
-                </Link>
+      <Reveal>
+        <section className="max-w-6xl mx-auto px-6 py-6">
+          <div className="border-t border-ink bg-night p-8 text-paper md:p-10">
+            <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+              <div>
+                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-gold-light">
+                  Mağaza analizi
+                </span>
+                <h2 className="mt-4 max-w-3xl font-serif text-3xl leading-tight tracking-tight md:text-5xl">
+                  Mağazanız neden potansiyelinin altında kalıyor? İki iş gününde ücretsiz söyleyelim.
+                </h2>
+                <p className="mt-5 max-w-2xl text-sm leading-7 text-faded">
+                  Sitenizin adresini bırakın. Mağazanızı elle inceleyip satış kaybettiren en önemli üç noktayı tek sayfalık bir notta size gönderelim. Not sizin kalır; isterseniz kendiniz uygularsınız.
+                </p>
               </div>
-              <p className="mt-4 text-xs leading-5 text-[#817d74]">
-                Ön tarama tek sayfadır, üç bulgu içerir ve hiçbir hesabınıza erişim istemez — site adresi yeterli. Mağazanın tamamını hesaplarınızın içine girerek inceleyen detaylı denetim ayrı bir hizmettir.
-              </p>
+
+              <div>
+                <ul className="space-y-3 border-t border-night-line pt-5 text-sm text-line">
+                  <li>— Ölçümünüz doğru mu, reklam bütçeniz nereye gidiyor</li>
+                  <li>— Ürün sayfalarınız rakiplerinize göre nerede duruyor</li>
+                  <li>— Ödeme akışında müşteriyi kaçıran adım hangisi</li>
+                </ul>
+                <div className="mt-7 flex flex-wrap gap-4">
+                  <Link href="/audit" className="bg-gold-light px-5 py-3 text-xs font-bold uppercase tracking-wider text-night transition-colors hover:bg-[#f0d58e]">
+                    Detaylı denetimi incele →
+                  </Link>
+                </div>
+                <p className="mt-4 text-xs leading-5 text-[#817d74]">
+                  Ön tarama tek sayfadır, üç bulgu içerir ve hiçbir hesabınıza erişim istemez — site adresi yeterli. Mağazanın tamamını hesaplarınızın içine girerek inceleyen detaylı denetim ayrı bir hizmettir.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </Reveal>
 
       {/* 7. FORM DOLDURMA ALANI */}
-      <section id="form-section" className="max-w-6xl mx-auto px-6 py-6">
-        <ContactForm />
-      </section>
+      <Reveal>
+        <section id="form-section" className="max-w-6xl mx-auto px-6 py-6">
+          <ContactForm />
+        </section>
+      </Reveal>
 
     </div>
   );

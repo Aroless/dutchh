@@ -1,3 +1,5 @@
+import Reveal from "@/components/Reveal";
+
 export interface Solution {
   title: string;
   description: string;
@@ -25,23 +27,26 @@ function SolutionItem({ solution, index }: { solution: Solution; index: number }
   const number = String(index + 1).padStart(2, "0");
 
   return (
-    <li className="group border border-ink bg-paper-light p-1.5 transition-transform duration-300 hover:-translate-y-1 hover:-rotate-[0.5deg] motion-reduce:transition-none">
-      <article className="grid h-full grid-cols-1 gap-6 border border-line p-6 transition-colors duration-300 group-hover:border-accent md:p-10 lg:grid-cols-12 lg:gap-12">
-        <div className="lg:col-span-5">
-          <div className="mb-6 flex items-center justify-between border-b border-line pb-4">
-            <span className="font-serif text-4xl text-gold md:text-5xl">{number}</span>
-            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-ink">Çözüm</span>
+    // Giriş animasyonu li'de, hover transform'u iç div'de: framer'ın satır içi transform'u hover class'larını ezmesin
+    <Reveal as="li" delay={index * 0.1}>
+      <div className="group border border-ink bg-paper-light p-1.5 transition-transform duration-300 hover:-translate-y-1 hover:-rotate-[0.5deg] motion-reduce:transition-none">
+        <article className="grid h-full grid-cols-1 gap-6 border border-line p-6 transition-colors duration-300 group-hover:border-accent md:p-10 lg:grid-cols-12 lg:gap-12">
+          <div className="lg:col-span-5">
+            <div className="mb-6 flex items-center justify-between border-b border-line pb-4">
+              <span className="font-serif text-4xl text-gold md:text-5xl">{number}</span>
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-ink">Çözüm</span>
+            </div>
+            <h3 className="font-serif text-xl leading-snug tracking-tight text-ink md:text-2xl">
+              {solution.title}
+            </h3>
+            <span aria-hidden="true" className="mt-5 block h-0.5 w-10 bg-accent transition-all duration-300 group-hover:w-20"></span>
           </div>
-          <h3 className="font-serif text-xl leading-snug tracking-tight text-ink md:text-2xl">
-            {solution.title}
-          </h3>
-          <span aria-hidden="true" className="mt-5 block h-0.5 w-10 bg-accent transition-all duration-300 group-hover:w-20"></span>
-        </div>
-        <p className="text-sm leading-7 text-muted-ink lg:col-span-7 lg:border-l lg:border-line lg:pl-12">
-          {solution.description}
-        </p>
-      </article>
-    </li>
+          <p className="text-sm leading-7 text-muted-ink lg:col-span-7 lg:border-l lg:border-line lg:pl-12">
+            {solution.description}
+          </p>
+        </article>
+      </div>
+    </Reveal>
   );
 }
 
