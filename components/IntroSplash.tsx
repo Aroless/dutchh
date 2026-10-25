@@ -10,6 +10,9 @@ const pieces = ["piece-1", "piece-2", "piece-3", "piece-4", "piece-5"];
 
 const MIN_SHOW_SECONDS = 0.75; // Yükleme çizgisinin dolma süresi
 const MAX_WAIT_MS = 2500; // Sayfa yüklenmese de en geç bu sürede açıl
+const JS_FAILSAFE_MS = 3600; // Animasyon herhangi bir nedenle takılırsa açılış ekranını zorla kaldır
+// JavaScript hiç çalışmazsa (hata, eklenti engeli vb.) açılış ekranı saf CSS ile bu sürede solar
+const CSS_FAILSAFE = "@keyframes intro-failsafe{to{opacity:0;visibility:hidden}}#intro-splash{animation:intro-failsafe .4s ease-out 4s forwards}";
 
 // Site ilk açıldığında (tam sayfa yüklemesi) bir kez oynar; layout'ta olduğu için sayfa geçişlerinde tekrar etmez.
 // Logo + yazı gösterilir, yükleme çizgisi dolar, sayfa yüklenince logo parçaları rastgele yönlere hızlanarak fırlar.
@@ -61,8 +64,10 @@ export default function IntroSplash() {
     };
 
     run();
+    const failsafe = window.setTimeout(() => setIsDone(true), JS_FAILSAFE_MS);
     return () => {
       cancelled = true;
+      window.clearTimeout(failsafe);
     };
   }, [animate, scope]);
 
@@ -90,7 +95,10 @@ export default function IntroSplash() {
         </div>
       </div>
 
-      {/* JavaScript kapalıysa açılış ekranı sayfayı kilitlemesin */}
+      {/* Açılış ekranı siteyi asla kilitlememeli: JS çalışmasa da CSS ile kendiliğinden kalkar */}
+      <style>{CSS_FAILSAFE}</style>
+
+      {/* JavaScript kapalıysa açılış ekranı hiç gösterilmesin */}
       <noscript>
         <style>{"#intro-splash{display:none}"}</style>
       </noscript>
