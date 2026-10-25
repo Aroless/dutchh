@@ -181,7 +181,7 @@ export const servicesData: Record<string, ServiceDetail> = {
       "Dijital dünyadaki vitrininiz rakiplerinize kıyasla çok daha profesyonel ve güven veren bir görünüme kavuşur. Ziyaretçiler sitede daha uzun süre kalır ve kurumsal duruşunuz satışlara doğrudan olumlu yansır.",
     highlights: [
       "Prestijli & Özgün Kurumsal Tasarım Mimarisi",
-      "％100 Mobil Uyumlu & Yıldırım Hızında",
+      "%100 Mobil Uyumlu & Yıldırım Hızında",
       "SEO Altyapılı & Güvenlik Sertifikalı",
       "Kullanıcıyı Harekete Geçiren CTA Yapısı",
     ],
@@ -193,7 +193,7 @@ export const servicesData: Record<string, ServiceDetail> = {
     ],
     steps: [
       { number: "01", title: "Keşif & Strateji", desc: "İhtiyaçlarınızı, hedef kitlenizi ve marka hedeflerinizi analiz ederek proje haritasını çıkarıyoruz." },
-      { number: "02", title: "UX/UI Tasarım", desc: "Markanızın prestijini yansıtacak modern ve dönüşüm odaklı sayfa tasarımlarını Figma'da hazırlıyoruz." },
+      { number: "02", title: "UX/UI Tasarım", desc: "Markanızın prestijini yansıtacak modern ve dönüşüm odaklı sayfa tasarımlarını hazırlayıp onayınıza sunuyoruz." },
       { number: "03", title: "Kodlama & Test", desc: "Tasarımları en son web teknolojileriyle kodluyor, hız, güvenlik ve mobil testlerini tamamlıyoruz." },
       { number: "04", title: "Yayın & Destek", desc: "Projenizi canlıya alıyor, yönetim eğitimini veriyor ve sürekli teknik destek sağlıyoruz." },
     ],
@@ -215,7 +215,7 @@ export const servicesData: Record<string, ServiceDetail> = {
     ],
     scope: [
       { title: "Sunucu & Domain Yapılandırması", desc: "Yüksek hızlı sunucu, SSL sertifikası ve kurumsal e-posta kurulumlarını tamamlıyoruz." },
-      { title: "CMS / Altyapı Kurulumu", desc: "İhtiyacınıza uygun içerik yönetim sistemini (CMS) kurup güvenliğini sağlıyoruz." },
+      { title: "Özel Altyapı & CMS", desc: "Sitenizi markanıza özel kodlanmış bir altyapıyla kuruyoruz; içeriği kendiniz yönetmek isterseniz uygun bir içerik yönetim sistemi (CMS) entegre ediyoruz." },
       { title: "Form & İletişim Entegrasyonları", desc: "Müşteri taleplerinin doğrudan panelinize veya e-postanıza düşmesini sağlıyoruz." },
       { title: "Google & Analitik Bağlantıları", desc: "Google Analytics ve Search Console bağlantılarını eksiksiz yapıyoruz." },
     ],
