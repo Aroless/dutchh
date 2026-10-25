@@ -32,27 +32,31 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="lg:col-span-4">
-            <div className="border-t border-ink pt-5">
-              <div className="text-xs font-bold border-b border-line pb-3 mb-4 uppercase text-gold tracking-wider">
-                ✦ DUTCH ANGLE BÜYÜME MİMARİSİ
+          {/* Eğik kadraj (dutch angle) kartı: üzerine gelince düzelir */}
+          <aside className="group relative mx-2 mt-6 lg:col-span-4 lg:mx-0 lg:mt-0">
+            <div aria-hidden="true" className="absolute inset-0 rotate-3 border border-accent transition-transform duration-500 group-hover:rotate-0 motion-reduce:transition-none"></div>
+            <div className="relative -rotate-2 border border-ink bg-paper-light p-1.5 transition-transform duration-500 group-hover:rotate-0 motion-reduce:transition-none">
+              <div className="border border-line p-6">
+                <div className="text-xs font-bold border-b border-line pb-3 mb-4 uppercase text-gold tracking-wider">
+                  ✦ DUTCH ANGLE BÜYÜME MİMARİSİ
+                </div>
+                <ul className="space-y-4 font-semibold text-xs text-[#4f4b44]">
+                  <li className="flex items-center gap-3">
+                    <span className="text-gold font-serif text-lg">01</span>
+                    Şeffaf Operasyon Süreçleri
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <span className="text-gold font-serif text-lg">02</span>
+                    Veri Odaklı Dijital Pazarlama
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <span className="text-gold font-serif text-lg">03</span>
+                    Hızlı Kurulum & Aksiyon
+                  </li>
+                </ul>
               </div>
-              <ul className="space-y-4 font-semibold text-xs text-[#4f4b44]">
-                <li className="flex items-center gap-3">
-                  <span className="text-gold font-serif text-lg">01</span>
-                  Şeffaf Operasyon Süreçleri
-                </li>
-                <li className="flex items-center gap-3">
-                  <span className="text-gold font-serif text-lg">02</span>
-                  Veri Odaklı Dijital Pazarlama
-                </li>
-                <li className="flex items-center gap-3">
-                  <span className="text-gold font-serif text-lg">03</span>
-                  Hızlı Kurulum & Aksiyon
-                </li>
-              </ul>
             </div>
-          </div>
+          </aside>
 
         </div>
       </header>

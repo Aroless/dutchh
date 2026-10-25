@@ -25,7 +25,7 @@ function SolutionItem({ solution, index }: { solution: Solution; index: number }
   const number = String(index + 1).padStart(2, "0");
 
   return (
-    <li className="group border border-ink bg-paper-light p-1.5 transition-transform duration-300 hover:-translate-y-1">
+    <li className="group border border-ink bg-paper-light p-1.5 transition-transform duration-300 hover:-translate-y-1 hover:-rotate-[0.5deg] motion-reduce:transition-none">
       <article className="grid h-full grid-cols-1 gap-6 border border-line p-6 transition-colors duration-300 group-hover:border-accent md:p-10 lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-5">
           <div className="mb-6 flex items-center justify-between border-b border-line pb-4">
