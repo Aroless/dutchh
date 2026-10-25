@@ -1,5 +1,12 @@
 import Link from "next/link";
 
+export const metadata = {
+  title: "Hakkımızda | Dutch Angle",
+  description: "Dutch Angle: e-ticaret ve B2B markalar için şeffaf, veri odaklı dijital büyüme ortağı.",
+  // Sayfadaki metinler henüz yer tutucu; içerik gelince bu satırı kaldırıp sitemap'e geri ekle
+  robots: { index: false },
+};
+
 export default function HakkimizdaPage() {
   return (
     <main className="min-h-screen bg-paper px-6 pb-24 text-ink">

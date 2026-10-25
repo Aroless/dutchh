@@ -40,13 +40,15 @@ export default function LoginPage() {
         console.error("Profil okuma hatası:", profileError);
       }
 
-      // 3. Role Göre Yönlendir (Middleware için çerezleri tazeleyerek tam sayfa yönlendir)
+      // 3. Role Göre Yönlendir (proxy.ts yeni oturum çerezini görsün diye bilerek tam sayfa yönlendirme)
       if (profile && profile.role === "admin") {
+        // eslint-disable-next-line @next/next/no-location-assign-relative-destination -- tam sayfa yükleme gerekli
         window.location.href = "/admin";
       } else {
+        // eslint-disable-next-line @next/next/no-location-assign-relative-destination -- tam sayfa yükleme gerekli
         window.location.href = "/dashboard";
       }
-    } catch (err) {
+    } catch {
       setError("Beklenmeyen bir hata oluştu.");
       setLoading(false);
     }

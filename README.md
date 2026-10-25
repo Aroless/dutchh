@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Dutch Angle
 
-## Getting Started
+B2B ve e-ticaret markalarına dijital pazarlama hizmeti veren Dutch Angle'ın web sitesi ve müşteri paneli.
 
-First, run the development server:
+- **Pazarlama sitesi:** ana sayfa, hizmet detay sayfaları, blog, büyüme (growth), mağaza denetimi (audit), başvuru formu
+- **Müşteri paneli** (`/dashboard`): müşterinin proje durumu ve reklam metrikleri
+- **Admin paneli** (`/admin`): iletişim talepleri, müşteri hesabı açma ve metrik güncelleme
+
+## Teknolojiler
+
+Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS 4 · Supabase (veritabanı + giriş) · Resend (e-posta) · Cloudflare Turnstile (bot koruması)
+
+## Kurulum
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Proje kökünde bir `.env.local` dosyası olmalı:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Değişken | Ne işe yarar |
+|---|---|
+| `NEXT_PUBLIC_SUPABASE_URL` | Supabase proje adresi |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase herkese açık anahtar (tarayıcı) |
+| `SUPABASE_SERVICE_ROLE_KEY` | Supabase yetkili anahtar (yalnızca sunucu, asla tarayıcıya gitmez) |
+| `RESEND_API_KEY` | İletişim formu bildirim e-postaları |
+| `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | Turnstile site anahtarı (form) |
+| `TURNSTILE_SECRET_KEY` | Turnstile gizli anahtar (sunucu doğrulaması) |
+| `NEXT_PUBLIC_SITE_URL` | *İsteğe bağlı.* Sitenin tam adresi (`https://...`). Sitemap, robots ve paylaşım önizlemelerinde kullanılır. Vercel'de verilmezse production alan adı otomatik alınır. |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Komutlar
 
-## Learn More
+```bash
+npm run dev     # geliştirme sunucusu
+npm run build   # production build (tip kontrolü dahil)
+npm run start   # build alınmış siteyi çalıştırır
+npm run lint    # ESLint
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Klasör yapısı
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+app/            Sayfalar ve API route'ları (App Router)
+  api/contact   İletişim formu: doğrulama, Supabase kaydı, e-posta
+  api/admin     Admin paneli API'leri (admin yetkisi kontrol edilir)
+components/     Ortak arayüz bileşenleri (Navbar, Footer, ContactForm ...)
+lib/            İçerik verileri (hizmetler, blog), Supabase istemcileri, site ayarları
+proxy.ts        /admin ve /dashboard için giriş kontrolü
+public/         Görseller ve ikonlar
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## İçerik güncelleme
 
-## Deploy on Vercel
+- **Hizmetler:** `lib/servicesData.ts` içine yeni bir kayıt eklemek yeterli. Sayfa, sitemap ve arama motoru başlıkları otomatik oluşur.
+- **Blog yazıları:** `lib/blogData.ts` içindeki `blogPosts` listesine eklenir.
+- **Renkler:** `app/globals.css` içindeki palet (`bg-paper`, `text-ink`, `text-gold` ...). Yeni renkleri buraya ekleyin.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Yayına alma
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Site Vercel'de çalışacak şekilde hazırlandı. Depo Vercel'e bağlıysa `main` dalına yapılan her push otomatik deploy tetikler. Ortam değişkenlerinin Vercel proje ayarlarında da tanımlı olması gerekir.

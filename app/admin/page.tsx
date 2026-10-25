@@ -62,6 +62,8 @@ export default function AdminPage() {
     };
 
     checkUser();
+    // Veriler yalnızca sayfa açılışında bir kez çekilir; fetch fonksiyonlarını bağımlılığa eklemek her render'da yeniden çalıştırır
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router]);
 
   // Siteden gelen talepleri çek

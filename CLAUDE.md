@@ -112,9 +112,9 @@ Test altyapısı yok. Değişiklikleri `npm run lint` ve `npm run build` ile do�
 2. **Müşteri/admin paneli** (`login`, `dashboard`, `admin`): Supabase Auth ile çalışır.
 
 **Supabase'e üç ayrı istemciyle erişilir:**
-- `lib/supabase.ts`: tarayıcı istemcisi (anon key). Client component'lerde ve `/api/contact` içinde kullanılır.
+- `lib/supabase.ts`: tarayıcı istemcisi (anon key). Client component'lerde kullanılır.
 - `lib/supabase-server.ts`: `createSupabaseServerClient()`, cookie tabanlı oturum. Route handler'larda kullanıcıyı doğrular.
-- `lib/supabase-admin.ts`: service role. **Sadece** admin yetkisi doğrulandıktan sonra, sunucuda kullanılır.
+- `lib/supabase-admin.ts`: service role. Yalnızca sunucuda kullanılır: admin route'larında yetki doğrulandıktan sonra ve `/api/contact` içinde Turnstile + alan doğrulamasından sonra `contacts` kaydı için.
 
 **Yetkilendirme katmanları:**
 - `proxy.ts` (Next 16'da Middleware'in yeni adı, bkz. `node_modules/next/dist/docs/01-app/01-getting-started/16-proxy.md`) yalnızca `/admin/*` ve `/dashboard/*` yollarını kapsar. Oturum yoksa `/login`'e, `profiles.role !== 'admin'` ise `/admin`'den `/dashboard`'a yönlendirir.
@@ -125,7 +125,9 @@ Test altyapısı yok. Değişiklikleri `npm run lint` ve `npm run build` ile do�
 - `profiles`: `auth.users.id` ile birebir. `role` değeri `'admin' | 'customer'`. Proje takip alanları: `project_name`, `project_status`, `project_progress`, `notes`. Metrik alanları: `revenue`, `orders`, `ad_spend`, `roas`, `clicks`, `conversion_rate`. Müşteri hesabı sadece admin tarafından açılır (`POST /api/admin/clients`). Bu işlem auth kullanıcısını ve profili birlikte oluşturur, profil başarısız olursa kullanıcıyı geri siler.
 - `contacts`: iletişim formu kayıtları.
 
-**İletişim formu akışı** (`components/ContactForm.tsx` → `app/api/contact/route.ts`): boyut limiti, IP başına bellek içi rate limit (10 dakikada 5 istek), honeypot alanı (`website`), sunucu tarafında Turnstile doğrulaması, alan doğrulaması, `contacts` tablosuna kayıt ve Resend ile e-posta. E-posta hatası kullanıcıya yansıtılmaz.
+**İletişim formu akışı** (`components/ContactForm.tsx` → `app/api/contact/route.ts`): boyut limiti, IP başına bellek içi rate limit (10 dakikada 5 istek), honeypot alanı (`website`), sunucu tarafında Turnstile doğrulaması, alan doğrulaması, `contacts` tablosuna kayıt (service role) ve Resend ile e-posta. E-posta hatası kullanıcıya yansıtılmaz. Rate limit sunucu belleğinde tutulduğu için Vercel'de instance'lar arasında paylaşılmaz; asıl koruma Turnstile.
+
+**SEO:** `lib/site.ts` sitenin tam adresini verir (`NEXT_PUBLIC_SITE_URL` > `VERCEL_PROJECT_PRODUCTION_URL` > localhost). `app/layout.tsx` bunu `metadataBase` olarak kullanır. `app/sitemap.ts` statik sayfaları, `servicesData` ve `blogPosts`'u otomatik listeler; yeni statik sayfa eklersen oraya da ekle. `app/robots.ts` panel ve API yollarını kapatır. Her sayfa kendi `metadata`/`generateMetadata`'sını tanımlar, başlık kalıbı `"<Sayfa> | Dutch Angle"`.
 
 **Güvenlik başlıkları:** `next.config.ts` içinde sıkı bir CSP tanımlı. Yeni bir harici script, font, iframe ya da API alan adı eklersen ilgili CSP direktifini de güncelle, yoksa tarayıcıda engellenir.
 
@@ -158,11 +160,12 @@ Test altyapısı yok. Değişiklikleri `npm run lint` ve `npm run build` ile do�
 - Birkaç dosyada bir iki kez kullanılan nadir tonlar (`#4f4b44`, `#817d74`, `#aaa296` vb.) hâlâ arbitrary hex olarak duruyor. Bunlara token açılmadı.
 
 **`globals.css` içindeki özel CSS.** Yeni kural ekleme, var olanları da kendi başına silme veya taşıma. İçindekiler:
-- **Global ezmeler:** `main[class*="bg-gradient-to-br"]` seçicisi, `main` etiketinde `bg-gradient-to-br` class'ı olan sayfaların arka planını, köşe yuvarlaklığını, gölgelerini ve başlık fontlarını zorla değiştiriyor (`!important` dahil). Bu sayfalarda Tailwind class'ları beklendiği gibi çalışmayabilir. Bir sayfada stil tutmuyorsa önce buraya bak.
 - **Hizmet detay sayfası:** `.service-page` ve altındaki `.service-*` class'ları `app/hizmetler/[category]/[slug]` sayfasının görünümünü CSS'ten yönetiyor. Bu sayfada değişiklik yaparken ilgili class'ları da kontrol et.
 - **Genel davranışlar:** tüm `a` ve `button` elemanlarında renk geçiş animasyonu, `::selection` rengi, smooth scroll.
 - **Üst bant animasyonu:** `.animate-marquee` ve `@keyframes marquee`. `prefers-reduced-motion` açıkken animasyon kapanıyor.
 
 ## Notlar
 
-- `prisma` ve `@prisma/client` bağımlılıklarda var ama şema dosyası yok ve kodda kullanılmıyor. Veritabanı erişimi tamamen Supabase üzerinden.
+- `app/hakkimizda/page.tsx` metinleri hâlâ yer tutucu (`[Buraya ... gelecek]`). Sayfa bu yüzden `robots: { index: false }` ile gizli ve sitemap'te yok. Gerçek içerik gelince ikisini de geri al. Şirket bilgisi uydurma; metni kullanıcıdan iste.
+- `components/PackageCalculator.tsx` hiçbir sayfada kullanılmıyor (Google Apps Script'e form gönderen bir paket hesaplayıcı). Silme, kullanıcıya sor.
+- `app/template.tsx` sayfa geçişinde sadece `y` kaydırması yapar. Opaklık animasyonu bilerek kaldırıldı: içerik JS yüklenmeden görünür kalmalı.

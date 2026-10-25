@@ -1,12 +1,45 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { servicesData } from "@/lib/servicesData";
+import { openGraphDefaults } from "@/lib/site";
 
 interface PageProps {
   params: Promise<{
     category: string;
     slug: string;
   }>;
+}
+
+export function generateStaticParams() {
+  return Object.values(servicesData).map((service) => ({
+    category: service.categorySlug,
+    slug: service.slug,
+  }));
+}
+
+// Arama sonuçları için açıklamayı ~155 karakterde, kelime ortasında kesmeden kısaltır
+function toMetaDescription(text: string, maxLength = 155) {
+  if (text.length <= maxLength) return text;
+  const cut = text.slice(0, maxLength);
+  return `${cut.slice(0, cut.lastIndexOf(" "))}…`;
+}
+
+export async function generateMetadata({ params }: PageProps) {
+  const { category, slug } = await params;
+  const service = servicesData[slug];
+
+  if (!service || service.categorySlug !== category) {
+    return { title: "Hizmetler | Dutch Angle" };
+  }
+
+  const description = toMetaDescription(service.description);
+
+  return {
+    title: `${service.title} | Dutch Angle`,
+    description,
+    alternates: { canonical: `/hizmetler/${category}/${slug}` },
+    openGraph: { ...openGraphDefaults, title: `${service.title} | Dutch Angle`, description },
+  };
 }
 
 export default async function ServiceDetailPage({ params }: PageProps) {

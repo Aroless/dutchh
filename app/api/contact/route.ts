@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { supabase } from "@/lib/supabase";
+import { supabaseAdmin } from "@/lib/supabase-admin";
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -111,7 +111,7 @@ export async function POST(req: Request) {
     }
 
     // 2. Supabase Veritabanına Kaydet
-    const { error } = await supabase
+    const { error } = await supabaseAdmin
       .from("contacts")
       .insert([{ name, email, phone, service, note: userNote }]);
 

@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar"; // Navbar'ını buraya import ediyoruz
 import Footer from "@/components/Footer";
+import { openGraphDefaults, siteUrl } from "@/lib/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,8 +16,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Dutch Angle | B2B & E-Ticaret Dijital Pazarlama",
   description: "Reklam ve e-ticaret süreçlerinizi şeffaf ve veri odaklı yönetin.",
+  openGraph: openGraphDefaults,
   icons: {
     icon: "/favicon.png",
     shortcut: "/favicon.png",

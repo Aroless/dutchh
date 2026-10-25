@@ -44,29 +44,6 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-main[class*="bg-gradient-to-br"] {
-  background: var(--paper) !important;
-  color: var(--ink);
-}
-
-main[class*="bg-gradient-to-br"] [class*="rounded-3xl"],
-main[class*="bg-gradient-to-br"] [class*="rounded-2xl"] {
-  border-radius: 0.25rem;
-  box-shadow: none;
-}
-
-main[class*="bg-gradient-to-br"] h1,
-main[class*="bg-gradient-to-br"] h2,
-main[class*="bg-gradient-to-br"] h3 {
-  font-family: var(--font-display);
-  letter-spacing: -0.035em;
-  text-transform: none;
-}
-
-main[class*="bg-gradient-to-br"] p {
-  color: var(--muted-ink);
-}
-
 .service-page {
   background: var(--paper);
   color: var(--ink);
