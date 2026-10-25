@@ -17,7 +17,7 @@ export default function CameraBackdrop() {
     <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
       {/* Odak çekme sürümünde netleşen kadrajın birebir aynısı: 1.22 kat büyütme, -5 derece eğim.
           Büyütme eğilen sahnenin köşelerde boşluk bırakmaması için de gerekli */}
-      <div className="absolute inset-0 scale-122 -rotate-5 opacity-30">
+      <div className="absolute inset-0 scale-122 -rotate-5 opacity-40">
         <CorridorScene className="size-full" />
       </div>
     </div>,
