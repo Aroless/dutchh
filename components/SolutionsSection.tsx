@@ -53,7 +53,7 @@ function SolutionItem({ solution, index }: { solution: Solution; index: number }
 export default function SolutionsSection() {
   return (
     <section aria-labelledby="solutions-heading" className="mx-auto max-w-6xl px-6 py-6">
-      <div className="border-t border-ink bg-paper p-8 md:p-10">
+      <div className="border-t border-ink p-8 md:p-10">
         <header className="mb-10 flex flex-col gap-4 border-b border-line pb-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
             <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-gold">
