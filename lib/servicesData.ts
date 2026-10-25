@@ -99,7 +99,7 @@ export const servicesData: Record<string, ServiceDetail> = {
       { title: "Arama Ağı Reklamları", desc: "Doğrudan ürün veya hizmetinizi arayan müşterilere ilk sırada görünün." },
       { title: "Performance Max Kampanyaları", desc: "Yapay zeka destekli kampanyalarla tüm Google kanallarında dönüşüm yakalayın." },
       { title: "Yeniden Hedefleme (Remarketing)", desc: "Sitenizi ziyaret edip satın almayan kitleleri kararlı müşterilere dönüştürün." },
-      { title: "Detaylı Raporlama", desc: "Hangi kelimeden ne kadar ciro elde ettiğinizi şeffaf analiz panelleriyle görün." },
+      { title: "Detaylı Raporlama", desc: "Hangi kelimeden ne kadar ciro elde ettiğinizi düzenli raporlarla görün." },
     ],
   },
   "meta-ads": {

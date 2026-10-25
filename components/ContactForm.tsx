@@ -177,14 +177,22 @@ export default function ContactForm() {
 
           <div className="mt-auto border-t border-night-line pt-6 text-sm">
             <span className="block text-[11px] font-bold uppercase tracking-[0.2em] text-faded">Doğrudan ulaşın</span>
-            <a
-              href="https://www.instagram.com/dutchangle_tr/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-2 inline-flex items-center gap-2 text-paper transition-colors hover:text-gold-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-light"
-            >
-              Instagram&apos;da @dutchangle_tr <span aria-hidden="true">↗</span>
-            </a>
+            <div className="mt-2 flex flex-col items-start gap-2">
+              <a
+                href="mailto:hello@dutchangle.co"
+                className="text-paper transition-colors hover:text-gold-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-light"
+              >
+                hello@dutchangle.co
+              </a>
+              <a
+                href="https://www.instagram.com/dutchangle_tr/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-paper transition-colors hover:text-gold-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-light"
+              >
+                Instagram&apos;da @dutchangle_tr <span aria-hidden="true">↗</span>
+              </a>
+            </div>
           </div>
         </aside>
 
